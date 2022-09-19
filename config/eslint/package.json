@@ -1,0 +1,15 @@
+{
+  "name": "eslint-config-custom",
+  "private": true,
+  "main": "index.json",
+  "dependencies": {
+    "eslint-config-turbo": "latest",
+    "eslint-plugin-react": "7.31.7",
+    "eslint": "^8.23.1",
+    "eslint-config-next": "^12.3.0",
+    "eslint-config-prettier": "^8.5.0"
+  },
+  "devDependencies": {
+    "typescript": "^4.7.4"
+  }
+}

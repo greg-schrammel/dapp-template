@@ -1,0 +1,35 @@
+{
+  "private": true,
+  "workspaces": [
+    "config/**",
+    "apps/**",
+    "packages/**"
+  ],
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "FORCE_COLOR=1 turbo run dev --parallel",
+    "dev:docs": "FORCE_COLOR=1 turbo run dev --filter docs",
+    "dev:web": "FORCE_COLOR=1 turbo run dev --filter web",
+    "lint": "turbo run lint",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "clean": "rimraf \"./**/{node_modules,dist,.turbo,.next,.eslintcache,.vercel}\"",
+    "prepare": "husky install",
+    "precommit": "lint-staged"
+  },
+  "devDependencies": {
+    "eslint-config-custom": "workspace:*",
+    "prettier-config": "workspace:*",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "prettier": "^2.7.1",
+    "prettier-plugin-organize-imports": "^3.1.1",
+    "prettier-plugin-tailwindcss": "^0.1.13",
+    "rimraf": "^3.0.2",
+    "turbo": "^1.4.7",
+    "typescript": "^4.8.3"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "packageManager": "pnpm@7.11.0"
+}

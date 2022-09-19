@@ -1,0 +1,25 @@
+@import 'ui/styles/globals.css';
+
+@layer base {
+  :root {
+    --bg-primary: 20 20 20;
+    --bg-secondary: 29 29 29;
+    --text-high: 255 255 255;
+    --text-medium: 185 185 185;
+    --text-low: 102 102 102;
+  }
+  ::selection {
+    @apply bg-white/20;
+  }
+  html {
+    @apply bg-primary scroll-pt-9 scroll-smooth;
+  }
+}
+
+/* React Live */
+.npm__react-simple-code-editor__textarea {
+  @apply !p-0 !font-mono !text-sm !outline-none;
+}
+.npm__react-simple-code-editor__textarea + pre {
+  @apply !p-0 !font-mono !text-sm;
+}

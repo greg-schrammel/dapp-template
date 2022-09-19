@@ -1,0 +1,5 @@
+export { CheckIcon } from './CheckIcon'
+export { CloseIcon } from './CloseIcon'
+export { CopyIcon } from './CopyIcon'
+export { DuplicateIcon } from './DuplicateIcon'
+export { MenuIcon } from './MenuIcon'
