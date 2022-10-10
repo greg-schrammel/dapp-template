@@ -10,6 +10,7 @@
     "dev": "FORCE_COLOR=1 turbo run dev --parallel",
     "dev:docs": "FORCE_COLOR=1 turbo run dev --filter docs",
     "dev:web": "FORCE_COLOR=1 turbo run dev --filter web",
+    "gen-icons": "turbo run build --filter icons",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "clean": "rimraf \"./**/{node_modules,dist,.turbo,.next,.eslintcache,.vercel}\"",

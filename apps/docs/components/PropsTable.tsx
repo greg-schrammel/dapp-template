@@ -29,9 +29,9 @@ export const PropsTable = ({ sourceLink, types }: Props) => {
             <thead>
               <tr className="bg-secondary text-left">
                 {headers.map((x) => (
-                  <th className="sticky top-0 first:rounded-l-lg last:rounded-r-lg" key={x}>
+                  <th className="sticky top-0 first:rounded-l last:rounded-r" key={x}>
                     <div className="px-4 py-1">
-                      <span className="text-medium text-xs font-medium uppercase">{x}</span>
+                      <span className="text-low text-xs font-medium uppercase">{x}</span>
                     </div>
                   </th>
                 ))}

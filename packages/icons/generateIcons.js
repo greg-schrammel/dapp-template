@@ -19,9 +19,9 @@ const template = ({ imports, interfaces, componentName, props, jsx }, { tpl }) =
 /** @type {Config} */
 const svgrConfig = {
   plugins: ['@svgr/plugin-svgo', '@svgr/plugin-jsx', '@svgr/plugin-prettier'],
-  replaceAttrValues: { '#000': 'currentColor' },
+  replaceAttrValues: { '#000': 'currentColor', black: 'currentColor' },
   svgProps: {
-    className: "{clsx('h-5 w-5', props.className)}",
+    className: "{clsx('h-[1em] w-[1em]', props.className)}",
   },
   expandProps: 'start',
   svgoConfig: {

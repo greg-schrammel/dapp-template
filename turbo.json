@@ -10,7 +10,8 @@
         "^build",
         "$NEXT_PUBLIC_INFURA_ID",
         "$NEXT_PUBLIC_ALCHEMY_ID",
-        "$NEXT_PUBLIC_ETHERSCAN_API_KEY"
+        "$NEXT_PUBLIC_ETHERSCAN_API_KEY",
+        "$NEXT_PUBLIC_RAPID_API_KEY"
       ],
       "outputs": [".next/**"]
     },

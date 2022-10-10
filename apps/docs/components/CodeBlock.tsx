@@ -60,15 +60,13 @@ const CodeStatic = ({ language, code }: { language: Language; code: string }) =>
 }
 
 export const CodeBlock: FC<Props> = ({ children, className, live }) => {
-  // const isMounted = useIsMounted()
-
   const code = children.trim()
-
   const language = className?.replace(/language-/, '') as Language
+
   return (
     <div
       className={clsx(
-        'shadow-black/15 bg-secondary text-high relative my-2 rounded-xl border border-white/5 p-3 leading-snug shadow-xl hover:border-white/10',
+        'bg-secondary text-high border-primary hover:border-secondary relative my-2 rounded-xl border p-3 leading-snug',
         !language && 'inline-block rounded-lg border py-0 px-1.5 leading-tight',
       )}
     >

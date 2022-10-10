@@ -10,7 +10,7 @@ export const CheckIcon = ({ title, titleId, ...props }: SVGProps<SVGSVGElement> 
     viewBox="0 0 15 15"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    className={clsx('h-5 w-5', props.className)}
+    className={clsx('h-[1em] w-[1em]', props.className)}
     aria-labelledby={titleId}
   >
     {title ? <title id={titleId}>{title}</title> : null}

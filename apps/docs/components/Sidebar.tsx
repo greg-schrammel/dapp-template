@@ -20,7 +20,7 @@ const NavLink = ({
     <Link href={href}>
       <div
         className={clsx(
-          'font-base hover:bg-secondary group -mx-2 w-auto rounded-lg border-2 border-transparent px-2 py-1 hover:border-white/5',
+          'font-base hover:bg-secondary hover:border-background-contrast/5 group -mx-2 w-auto rounded-sm border border-transparent px-2 py-1',
           'focus:no-underline active:opacity-90',
         )}
       >

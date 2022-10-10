@@ -4,7 +4,10 @@ const withTM = require('next-transpile-modules')(['ui', 'icons', 'hooks'])
 const nextConfig = {
   reactStrictMode: true,
   trailingSlash: false,
-  swcMinify: true,
+  swcMinify: false,
+  images: {
+    formats: ['image/avif', 'image/webp'],
+  },
 }
 
 module.exports = withTM(nextConfig)

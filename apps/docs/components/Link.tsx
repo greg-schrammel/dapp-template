@@ -2,6 +2,11 @@ import clsx from 'clsx'
 import NextLink from 'next/link'
 import { AnchorHTMLAttributes, FC, PropsWithChildren } from 'react'
 
+const canPrefetch = (href: string) => {
+  if (!href || !href.startsWith('/')) return false
+  return true
+}
+
 export const Link: FC<PropsWithChildren<AnchorHTMLAttributes<'a'>> & { href: string }> = ({
   children,
   className,
@@ -29,8 +34,4 @@ export const Link: FC<PropsWithChildren<AnchorHTMLAttributes<'a'>> & { href: str
       </NextLink>
     </>
   )
-}
-const canPrefetch = (href: string) => {
-  if (!href || !href.startsWith('/')) return false
-  return true
 }

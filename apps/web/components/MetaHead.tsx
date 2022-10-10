@@ -6,7 +6,7 @@ import { useRouter } from 'next/router'
 export const HOST_URL = ''
 export const TWITTER_USER = ''
 export const SITE_NAME = ''
-export const FAVICO = '/assets/favico.svg'
+export const FAVICO = '/logo.svg'
 
 export interface MetaProps {
   description?: string

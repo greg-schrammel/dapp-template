@@ -1,4 +1,12 @@
+const baseConfig = require('ui/tailwind.config')
+
+/** @type {import('tailwindcss').Config} */
 module.exports = {
-  ...require('ui/tailwind.config'),
+  ...baseConfig,
   content: ['**/*.tsx', '../../packages/ui/**/*.tsx'],
+  theme: {
+    extend: {
+      ...baseConfig.theme.extend,
+    },
+  },
 }

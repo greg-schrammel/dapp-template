@@ -16,7 +16,7 @@ export const DuplicateIcon = ({
     viewBox="0 0 24 24"
     strokeWidth={1.5}
     stroke="currentColor"
-    className={clsx('h-5 w-5', props.className)}
+    className={clsx('h-[1em] w-[1em]', props.className)}
     aria-labelledby={titleId}
   >
     {title ? <title id={titleId}>{title}</title> : null}
