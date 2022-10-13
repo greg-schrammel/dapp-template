@@ -2,7 +2,7 @@ const plugin = require('tailwindcss/plugin')
 const variablesApi = require('@mertasan/tailwindcss-variables/api')
 
 const { objToTailwindVars } = require('./utils')
-const { lightTheme, darkTheme } = require('./themes')
+const { lightTheme, darkTheme } = require('../styles/themes')
 
 module.exports.themePlugin = plugin(({ addComponents, config }) => {
   const options = { colorVariables: true, forceRGB: true, darkToRoot: false }

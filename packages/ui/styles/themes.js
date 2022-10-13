@@ -1,20 +1,21 @@
-const { colors } = require('./colors')
+const colors = require('./colors')
+const { grey } = colors
 
 const darkTheme = {
   text: {
-    high: colors.grey[50],
-    medium: colors.grey[200],
-    low: colors.grey[300],
+    high: grey[50],
+    medium: grey[200],
+    low: grey[300],
   },
   border: {
-    primary: colors.grey[500],
-    secondary: colors.grey[800],
+    primary: grey[500],
+    secondary: grey[800],
   },
   background: {
-    primary: colors.grey[800],
-    secondary: colors.grey[700],
-    tertiary: colors.grey[600],
-    contrast: colors.grey[400],
+    primary: grey[800],
+    secondary: grey[700],
+    tertiary: grey[600],
+    contrast: grey[400],
   },
   shadow: {
     primary: '0px 4px 12px rgba(250, 250, 250, 0.01)',
@@ -23,19 +24,19 @@ const darkTheme = {
 
 const lightTheme = {
   text: {
-    high: colors.grey[800],
-    medium: colors.grey[500],
-    low: colors.grey[400],
+    high: grey[800],
+    medium: grey[500],
+    low: grey[400],
   },
   border: {
-    primary: colors.grey[100],
-    secondary: colors.grey[800],
+    primary: grey[100],
+    secondary: grey[800],
   },
   background: {
-    primary: colors.grey[50],
+    primary: grey[50],
     secondary: '#fff',
-    tertiary: colors.grey[100],
-    contrast: colors.grey[200],
+    tertiary: grey[100],
+    contrast: grey[200],
   },
   shadow: {
     primary: '0px 4px 12px rgba(0, 0, 0, 0.05)',
@@ -44,8 +45,8 @@ const lightTheme = {
 
 module.exports.darkTheme = darkTheme
 module.exports.lightTheme = lightTheme
-module.exports.theme = /** @type {typeof lightTheme} */ (
-  require('./utils').objToVars({ colors, ...lightTheme })
-)
 
-// --shadow-primary: '0px 4px 12px rgba(250, 250, 250, 0.01)'
+/* theme object has no "real" value, only css variable references */
+module.exports.theme = /** @type {typeof lightTheme} */ (
+  require('../plugins/utils').objToVars({ colors, ...lightTheme })
+)

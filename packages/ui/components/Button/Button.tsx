@@ -16,7 +16,7 @@ export const buttonStyles = cva(
         icon: ['text-low hover:bg-tertiary outline-border hover:outline-2'],
       },
       size: {
-        sm: 'py-1 px-1',
+        sm: 'py-2 px-2',
         md: 'py-2 px-4',
         lg: 'py-3 px-8',
       },
