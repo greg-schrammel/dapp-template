@@ -1,5 +1,5 @@
 const defaultTheme = require('tailwindcss/defaultTheme')
-const colors = require('./styles/colors')
+const { themePlugin, theme } = require('./styles/themePlugin')
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -12,29 +12,21 @@ module.exports = {
         sans: ['"InterVariable"', ...defaultTheme.fontFamily.sans],
         mono: ['"IBM Plex Mono"', ...defaultTheme.fontFamily.mono],
       },
-      colors,
+      colors: theme,
       borderRadius: {
         sm: '8px',
         DEFAULT: '12px',
         lg: '14px',
       },
-      backgroundColor: colors.background,
-      textColor: colors.text,
-      borderColor: {
-        DEFAULT: colors.border.primary,
-        primary: colors.border.primary,
-        secondary: colors.border.secondary,
-      },
-      boxShadow: {
-        DEFAULT: 'var(--shadow-primary)',
-      },
-      outlineColor: {
-        DEFAULT: colors.border.primary,
-      },
+      backgroundColor: theme.background,
+      textColor: theme.text,
+      borderColor: { ...theme.border, DEFAULT: theme.border.primary },
+      outlineColor: { ...theme.border, DEFAULT: theme.border.primary },
+      boxShadow: { ...theme.shadow, DEFAULT: theme.shadow.primary },
     },
   },
   future: {
     hoverOnlyWhenSupported: true,
   },
-  plugins: [],
+  plugins: [themePlugin],
 }

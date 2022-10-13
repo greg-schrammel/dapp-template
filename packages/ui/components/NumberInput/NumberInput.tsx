@@ -5,7 +5,7 @@ import { OnValueChange } from 'react-number-format/types/types'
 import { cva } from 'class-variance-authority'
 import type { VariantProps } from 'class-variance-authority'
 
-export const numberInputStyles = cva(['font-sans'], {
+export const numberInputStyles = cva(['font-sans font-medium placeholder:text-low'], {
   variants: {
     variant: {
       unstyled: 'bg-transparent',

@@ -1,32 +1,13 @@
-const rgb = (cssVar) => `rgb(var(--${cssVar}) / <alpha-value>)`
+const grey = /** @type {const} */ ({
+  50: '#FAFAFA', // 250 250 250,
+  100: 'rgb(238, 238, 238)',
+  200: 'rgb(232, 232, 232)',
+  300: '#9A9A9A', // 154 154 154,
+  400: '#3F3F3F', // 63 63 63,
+  500: '#262626', // 38 38 38,
+  600: '#1D1D1D', // 29 29 29,
+  700: '#181818', // 24 24 24,
+  800: '#141414', // 20 20 20,
+})
 
-const base = {
-  grey: {
-    50: rgb(`grey-50`),
-    300: rgb(`grey-300`),
-    400: rgb(`grey-400`),
-    500: rgb(`grey-500`),
-    600: rgb(`grey-600`),
-    700: rgb(`grey-700`),
-    800: rgb(`grey-800`),
-  },
-}
-
-const theme = {
-  text: {
-    high: rgb(`text-high`),
-    low: rgb(`text-low`),
-  },
-  border: {
-    primary: rgb(`border-color-primary`),
-    secondary: rgb(`border-color-secondary`),
-  },
-  background: {
-    primary: rgb(`background-color-primary`),
-    secondary: rgb(`background-color-secondary`),
-    tertiary: rgb(`background-color-tertiary`),
-    contrast: rgb(`background-color-contrast`),
-  },
-}
-
-module.exports = { ...base, ...theme }
+module.exports.colors = { grey }

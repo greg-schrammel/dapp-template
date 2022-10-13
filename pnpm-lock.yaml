@@ -258,11 +258,14 @@ importers:
     specifiers:
       '@fontsource/ibm-plex-mono': ^4.5.11
       '@fontsource/inter': ^4.5.12
+      '@mertasan/tailwindcss-variables': ^2.5.1
+      '@radix-ui/react-slot': ^1.0.0
       '@types/react': ^18.0.20
       '@types/react-dom': ^18.0.6
       autoprefixer: ^10.4.11
       class-variance-authority: ^0.2.3
       clsx: ^1.2.1
+      hooks: workspace:*
       icons: workspace:*
       next-themes: ^0.2.1
       postcss: ^8.4.16
@@ -273,8 +276,11 @@ importers:
     dependencies:
       '@fontsource/ibm-plex-mono': 4.5.11
       '@fontsource/inter': 4.5.12
+      '@mertasan/tailwindcss-variables': 2.5.1_6b4luod745iryv24jvdbvzbbsa
+      '@radix-ui/react-slot': 1.0.0_react@18.2.0
       class-variance-authority: 0.2.3_typescript@4.8.3
       clsx: 1.2.1
+      hooks: link:../hooks
       icons: link:../icons
       next-themes: 0.2.1_azq6kxkn3od7qdylwkyksrwopy
       postcss-import: 15.0.0_postcss@8.4.16
@@ -2185,6 +2191,18 @@ packages:
       '@types/react': 18.0.20
       react: 18.2.0
 
+  /@mertasan/tailwindcss-variables/2.5.1_6b4luod745iryv24jvdbvzbbsa:
+    resolution: {integrity: sha512-I1Jvpu5fcinGT/yEDL53dRXznFWV4LoTCUVcTvQqA1YH1iAfs72OO/VZdBKPqcxe/lS2nBr/Ikloe+pLsxemmA==}
+    engines: {node: '>=12.13.0'}
+    peerDependencies:
+      autoprefixer: ^10.0.2
+      postcss: ^8.0.9
+    dependencies:
+      autoprefixer: 10.4.11_postcss@8.4.16
+      lodash: 4.17.21
+      postcss: 8.4.16
+    dev: false
+
   /@metamask/safe-event-emitter/2.0.0:
     resolution: {integrity: sha512-/kSXhY692qiV1MXu6EeOZvg5nECLclxNXcKCxJ3cXQgYuRymRHpdx/t7JXfsK+JLjwA1e1c1/SBrlQYpusC29Q==}
     dev: false
@@ -3989,7 +4007,6 @@ packages:
       picocolors: 1.0.0
       postcss: 8.4.16
       postcss-value-parser: 4.2.0
-    dev: true
 
   /available-typed-arrays/1.0.5:
     resolution: {integrity: sha512-DMD0KiN46eipeziST1LPP/STfDU0sufISXmjSgvVsoU2tqxctQeASejWcfNtxYKqETM1UxQ8sp2OrSBWpHY6sw==}
@@ -6156,7 +6173,6 @@ packages:
 
   /fraction.js/4.2.0:
     resolution: {integrity: sha512-MhLuK+2gUcnZe8ZHlaaINnQLl0xRIGRfcGk2yl8xoQAfHrSsL3rYu6FCmBdkdbhc9EPlwyGHewaRsvwRMJtAlA==}
-    dev: true
 
   /fragment-cache/0.2.1:
     resolution: {integrity: sha512-GMBAbW9antB8iZRHLoGw0b3HANt57diZYFO/HL1JGIC1MjKrdmhxvrJbupnVvpys0zsz7yBApXdQyfepKly2kA==}
@@ -8638,7 +8654,6 @@ packages:
   /normalize-range/0.1.2:
     resolution: {integrity: sha512-bdok/XvKII3nUpklnV6P2hxtMNrCboOjAcyBuQnWEhO665FwrSNRxU+AqpsyvO6LgGYPspN+lu5CLtw4jPRKNA==}
     engines: {node: '>=0.10.0'}
-    dev: true
 
   /npm-run-path/2.0.2:
     resolution: {integrity: sha512-lJxZYlT4DW/bRUtFh1MQIWqmLwQfAxnqWG4HhEdjMlkrJYnJn0Jrr2u3mgxqaWsdiBc76TYkTG/mhrnYTuzfHw==}

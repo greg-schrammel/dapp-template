@@ -1,4 +1,3 @@
-@import './themes.css';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -7,19 +6,7 @@
   ::selection {
     @apply bg-contrast/30;
   }
-  html body {
+  html {
     @apply bg-primary text-high;
-  }
-}
-
-@layer components {
-  button:focus {
-    @apply text-high;
-  }
-  a:focus {
-    @apply underline underline-offset-4 outline-none;
-  }
-  input::placeholder {
-    @apply text-low/50 font-medium;
   }
 }
