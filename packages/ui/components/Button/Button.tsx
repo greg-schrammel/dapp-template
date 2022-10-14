@@ -16,7 +16,7 @@ export const buttonStyles = cva(
         icon: ['text-low hover:bg-tertiary outline-border hover:outline-2'],
       },
       size: {
-        sm: 'py-2 px-2',
+        sm: 'py-1 px-2',
         md: 'py-2 px-4',
         lg: 'py-3 px-8',
       },
@@ -24,6 +24,9 @@ export const buttonStyles = cva(
       fullWidth: { true: 'w-full', false: 'w-auto' },
     },
     compoundVariants: [
+      { variant: 'icon', size: 'sm', class: 'px-1 py-1' },
+      { variant: 'icon', size: 'md', class: 'px-2 py-2' },
+      { variant: 'icon', size: 'lg', class: 'px-3 py-3' },
       { size: 'sm', bleed: true, class: '-my-1 -mx-1' },
       { size: 'md', bleed: true, class: '-my-2 -mx-4' },
       { size: 'lg', bleed: true, class: '-my-3 -mx-8' },
@@ -36,7 +39,7 @@ export type ButtonProps = PropsWithChildren<
   {
     /** width 100% */
     fullWidth?: boolean
-    onClick: VoidFunction
+    onClick?: VoidFunction
     /** button padding should be countered with negative margin */
     bleed?: boolean
     disabled?: boolean

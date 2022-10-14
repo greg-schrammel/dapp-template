@@ -8,5 +8,6 @@
   }
   html {
     @apply bg-primary text-high;
+    font-feature-settings: 'rlig' 1, 'calt' 1, 'ss01' 1, 'ss06' 1 !important;
   }
 }

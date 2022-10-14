@@ -12,7 +12,7 @@ const ConnectedButton = ({
 }: {
   ensName?: string
   address: Address
-  onClick: VoidFunction
+  onClick?: VoidFunction
 }) => {
   const { chain } = useNetwork()
   return (
@@ -36,14 +36,8 @@ export const ConnectButton = () => {
   return (
     <ConnectKitButton.Custom>
       {({ isConnected, show, address, ensName }) => {
-        if (!isConnected) return <Button onClick={() => show?.()}>Connect Wallet</Button>
-        return (
-          <ConnectedButton
-            address={address as Address}
-            ensName={ensName}
-            onClick={() => show?.()}
-          />
-        )
+        if (!isConnected) return <Button onClick={show}>Connect Wallet</Button>
+        return <ConnectedButton address={address as Address} ensName={ensName} onClick={show} />
       }}
     </ConnectKitButton.Custom>
   )
