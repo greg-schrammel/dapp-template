@@ -1,12 +1,15 @@
 import { MDXProvider } from '@mdx-js/react'
-import { MDX } from 'components'
-import { MetaHead, MetaProps } from 'components/MetaHead'
-import { DocsLayout, LayoutProps } from 'layouts/DocsLayout'
 import type { NextComponentType } from 'next'
 import type { AppProps } from 'next/app'
+import { ErrorBoundary } from 'react-error-boundary'
+
+import { MDX } from 'components'
+import ErrorFallback from 'components/ErrorFallback'
+import { MetaHead, MetaProps } from 'components/MetaHead'
+import { DocsLayout, LayoutProps } from 'layouts/DocsLayout'
+import { ThemeProvider } from 'ui'
 
 import 'globals.css'
-import { ThemeProvider } from 'ui'
 import 'ui/fonts'
 
 type AppPropsWithLayout = AppProps & {
@@ -20,13 +23,15 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
   const Layout = Component.Layout || DocsLayout
 
   return (
-    <ThemeProvider>
-      <MDXProvider components={MDX}>
-        <MetaHead meta={Component.Meta} />
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
-      </MDXProvider>
-    </ThemeProvider>
+    <ErrorBoundary fallbackRender={ErrorFallback}>
+      <ThemeProvider>
+        <MDXProvider components={MDX}>
+          <MetaHead meta={Component.Meta} />
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </MDXProvider>
+      </ThemeProvider>
+    </ErrorBoundary>
   )
 }
