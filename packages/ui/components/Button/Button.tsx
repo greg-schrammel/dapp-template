@@ -5,7 +5,7 @@ import { forwardRef, PropsWithChildren } from 'react'
 const buttonBaseStyles = cva([
   'h-min transition-all rounded relative',
   'font-semibold font-sans',
-  'hover:text-high hover:outline',
+  'hover:text-high hover:outline outline-transparent',
   'focus:outline focus:outline-background-contrast',
 ])
 
