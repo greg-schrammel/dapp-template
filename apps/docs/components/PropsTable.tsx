@@ -48,7 +48,7 @@ export const PropsTable = ({ sourceLink, types }: PropsTableProps) => {
                       </span>
                     )}
                     {!!x.description && (
-                      <Tooltip content={x.description}>
+                      <Tooltip content={x.description} side="top">
                         <Button variant="icon" size="sm">
                           <QuestionMarkIcon title="description" />
                         </Button>
