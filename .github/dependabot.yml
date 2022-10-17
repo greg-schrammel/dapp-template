@@ -6,8 +6,6 @@ updates:
       interval: 'monthly'
     open-pull-requests-limit: 0
     target-branch: 'develop'
-    reviewers:
-      - 'ConcaveFi/frontend'
     labels:
       - 'dependabot'
       - 'dependencies'
