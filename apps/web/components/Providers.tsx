@@ -30,7 +30,7 @@ const isServer = typeof window === 'undefined'
 const isIframe = !isServer && window?.parent !== window
 
 const client = createClient({
-  autoConnect: true,
+  autoConnect: !isIframe,
   connectors,
   provider,
   webSocketProvider,
