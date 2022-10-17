@@ -1,0 +1,14 @@
+{
+  "short_name": "Dapp",
+  "name": "Dapp Template",
+  "description": "Started dapp project",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone"
+}

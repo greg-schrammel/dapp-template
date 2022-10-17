@@ -1,12 +1,14 @@
 import NextHead from 'next/head'
 import { useRouter } from 'next/router'
+import { useTheme } from 'ui'
+import { darkTheme, lightTheme } from 'ui/styles/themes'
 
 // TODO: update with project info
 
 export const HOST_URL = ''
 export const TWITTER_USER = ''
 export const SITE_NAME = ''
-export const FAVICO = '/logo.svg'
+export const FAVICO = '/favicon.svg'
 
 export interface MetaProps {
   description?: string
@@ -16,6 +18,9 @@ export interface MetaProps {
 }
 
 export const MetaHead = ({ meta: _meta }: { meta?: MetaProps }): JSX.Element => {
+  const { resolvedTheme } = useTheme()
+  const themeColor =
+    resolvedTheme === 'light' ? lightTheme.background.primary : darkTheme.background.primary // not super happy with this
   const router = useRouter()
   const meta: MetaProps = {
     title: '',
@@ -42,7 +47,7 @@ export const MetaHead = ({ meta: _meta }: { meta?: MetaProps }): JSX.Element => 
       <meta name="twitter:description" content={meta.description} />
       <meta name="twitter:image" content={meta.image} />
       <link rel="shortcut icon" href={FAVICO} />
-      <meta name="theme-color" content="#fff" />
+      <meta name="theme-color" content={themeColor} />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
     </NextHead>
   )
