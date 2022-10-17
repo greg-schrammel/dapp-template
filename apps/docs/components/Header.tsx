@@ -1,6 +1,6 @@
 import { MenuIcon } from 'icons'
+import Link from 'next/Link'
 import { ToggleTheme } from 'ui'
-import { Link } from './Link'
 
 export const Header = ({
   onMenuClick,
@@ -19,7 +19,9 @@ export const Header = ({
       </button>
 
       <Link href="/">
-        <h1 className="text-high text-lg font-bold">📖 docs</h1>
+        <h1 className="text-high text-lg font-bold">
+          dapp <span className="text-low text-sm font-medium">docs</span>
+        </h1>
       </Link>
     </div>
     <ToggleTheme />

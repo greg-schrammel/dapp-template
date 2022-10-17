@@ -16,18 +16,20 @@ const ConnectedButton = ({
 }) => {
   const { chain } = useNetwork()
   return (
-    <Button variant="secondary" onClick={onClick} bleed>
-      <div className="flex flex-col justify-end gap-[2px]">
-        <span className="text-sm font-semibold">{ensName ?? truncateAddress(address)}</span>
-        <span className="text-low text-right text-xs">{chain?.name}</span>
+    <Button variant="secondary" onClick={onClick}>
+      <div className="align-center flex gap-4">
+        <div className="flex flex-col justify-end ">
+          <span className="text-sm font-semibold">{ensName ?? truncateAddress(address)}</span>
+          <span className="text-low text-right text-xs">{chain?.name}</span>
+        </div>
+        <Image
+          width="36px"
+          height="36px"
+          className="rounded-sm"
+          alt="address blockie"
+          src={makeBlockie(address)}
+        />
       </div>
-      <Image
-        width="32px"
-        height="32px"
-        className="rounded-sm"
-        alt="address blockie"
-        src={makeBlockie(address)}
-      />
     </Button>
   )
 }

@@ -1,25 +1,24 @@
 import { Root as VisuallyHidden } from '@radix-ui/react-visually-hidden'
-import { useState } from 'react'
+import { QuestionMarkIcon } from 'icons'
 import { PropItem } from 'react-docgen-typescript'
+import { Button, ExternalLink, Tooltip } from 'ui'
 
-import { Link } from './Link'
-
-type Props = {
+type PropsTableProps = {
   sourceLink?: string
   types: Record<string, PropItem>
 }
 
-export const PropsTable = ({ sourceLink, types }: Props) => {
-  const hasDescription = Object.values(types).some((x) => x.description !== '')
-  const [showDescriptions, setShowDescriptions] = useState(hasDescription)
-
-  const headers = ['name', 'type', 'default', ...(showDescriptions ? ['description'] : [])]
-  const props = Object.values(types).sort((a, b) => {
+const sortEventsOnTop = (types: PropsTableProps['types']) =>
+  Object.values(types).sort((a, b) => {
     if (a.name.startsWith('on') || b.name.startsWith('on')) return 1
     if (a.name < b.name) return -1
     if (a.name > b.name) return 1
     return 0
   })
+
+export const PropsTable = ({ sourceLink, types }: PropsTableProps) => {
+  const headers = ['name', 'type', 'default']
+  const props = sortEventsOnTop(types)
 
   return (
     <>
@@ -40,17 +39,21 @@ export const PropsTable = ({ sourceLink, types }: Props) => {
 
             <tbody>
               {props.map((x) => (
-                <tr className="border-b border-white border-opacity-30 p-2" key={x.name}>
-                  <td className="px-4 py-3">
-                    <span className="text-high">
-                      {x.name}
-                      {x.required && (
-                        <span className="text-xs text-red-400">
-                          {' '}
-                          ✱<VisuallyHidden>Required</VisuallyHidden>
-                        </span>
-                      )}
-                    </span>
+                <tr className="border-secondary border-b border-opacity-30 p-2" key={x.name}>
+                  <td className="align-center flex gap-1 px-4 py-3">
+                    <span className="text-high">{x.name}</span>
+                    {x.required && (
+                      <span className="text-xs text-red-400">
+                        ✱<VisuallyHidden>Required</VisuallyHidden>
+                      </span>
+                    )}
+                    {!!x.description && (
+                      <Tooltip content={x.description}>
+                        <Button variant="icon" size="sm">
+                          <QuestionMarkIcon title="description" />
+                        </Button>
+                      </Tooltip>
+                    )}
                   </td>
 
                   <td className="px-4 py-3">
@@ -64,12 +67,6 @@ export const PropsTable = ({ sourceLink, types }: Props) => {
                       {x.defaultValue?.value.toString() ?? '-'}
                     </span>
                   </td>
-
-                  {showDescriptions && (
-                    <td className="px-4 py-3">
-                      <span className="text-medium text-xs">{x.description || '-'}</span>
-                    </td>
-                  )}
                 </tr>
               ))}
             </tbody>
@@ -81,19 +78,10 @@ export const PropsTable = ({ sourceLink, types }: Props) => {
 
       <div className="my-2">
         <div className="flex justify-end gap-2">
-          {!!hasDescription && (
-            <button
-              className="text-medium hover:text-high text-xs"
-              onClick={() => setShowDescriptions((s) => !s)}
-            >
-              {showDescriptions ? 'Hide Descriptions' : 'Show Descriptions'}
-            </button>
-          )}
-
           {sourceLink && (
-            <Link href={sourceLink} className="text-medium hover:text-high text-xs">
+            <ExternalLink href={sourceLink} className="text-low hover:text-high text-xs">
               View Source on GitHub
-            </Link>
+            </ExternalLink>
           )}
         </div>
       </div>

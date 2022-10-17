@@ -1,3 +1,4 @@
+import * as Icons from 'icons'
 import NextImage from 'next/future/image'
 import NextLink from 'next/link'
 import { Language, PrismTheme } from 'prism-react-renderer'
@@ -21,13 +22,14 @@ export const CodePreview = ({ code, language, theme }: Props) => {
       language={language}
       scope={{
         ...Components,
+        ...Icons,
         previewRef,
         NextImage,
         NextLink,
       }}
       theme={theme}
       transformCode={(code) =>
-        `<div className="flex flex-col gap-2 items-center text-high"> ${code} </div>`
+        `<div className="flex flex-col gap-2 items-center text-high font-sans"> ${code} </div>`
       }
     >
       <div className="overflow-visible p-3" ref={previewRef}>

@@ -1,4 +1,4 @@
-import clsx from 'clsx'
+import { cx } from '@ui/utils'
 import { SVGProps } from 'react'
 interface SVGRProps {
   title?: string
@@ -12,7 +12,7 @@ export const MoonIcon = ({ title, titleId, ...props }: SVGProps<SVGSVGElement> &
     viewBox="0 0 24 24"
     strokeWidth={1.5}
     stroke="currentColor"
-    className={clsx('h-[1em] w-[1em]', props.className)}
+    className={cx('h-[1em] w-[1em]', props.className)}
     aria-labelledby={titleId}
   >
     {title ? <title id={titleId}>{title}</title> : null}

@@ -12,7 +12,6 @@
     "@radix-ui/react-collapsible": "^1.0.0",
     "@radix-ui/react-visually-hidden": "^1.0.0",
     "@sindresorhus/slugify": "^2.1.0",
-    "clsx": "^1.2.1",
     "eslint-config-custom": "workspace:*",
     "framer-motion": "^7.3.5",
     "gray-matter": "^4.0.3",

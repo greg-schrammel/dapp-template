@@ -1,4 +1,5 @@
 import { PropsWithChildren } from 'react'
+import { ToggleTheme } from 'ui'
 import { ConnectButton } from './ConnectButton'
 
 export type LayoutProps = PropsWithChildren<{}>
@@ -12,7 +13,10 @@ const TopBar = () => {
           <span className="text-low text-xs">Template</span>
         </div>
       </div>
-      <ConnectButton />
+      <div className="flex items-center gap-2">
+        <ConnectButton />
+        <ToggleTheme />
+      </div>
     </header>
   )
 }

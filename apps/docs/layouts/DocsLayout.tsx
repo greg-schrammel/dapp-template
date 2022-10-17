@@ -27,7 +27,7 @@ export const DocsLayout = ({ children }: LayoutProps) => {
     <>
       <div className="mt-14 min-h-screen px-4">
         <main className="mx-auto max-w-screen-sm">
-          <article className="max-w-full pt-4 pb-16">{children}</article>
+          <article className="max-w-full pt-12 pb-16">{children}</article>
         </main>
       </div>
       <Sidebar links={links} isOpen={isSidebarOpen} />

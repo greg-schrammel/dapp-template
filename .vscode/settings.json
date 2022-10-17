@@ -17,5 +17,7 @@
   "prettier.configPath": ".prettierrc.js",
   "git.ignoreLimitWarning": true,
   "eslint.workingDirectories": [{ "mode": "auto" }],
-  "tailwindCSS.experimental.classRegex": [["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"]]
+  "tailwindCSS.experimental.classRegex": [
+    ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]", "cx(*)"]
+  ]
 }

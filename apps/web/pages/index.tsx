@@ -1,5 +1,4 @@
-import { ExternalLink } from 'components/ExternalLink'
-import { ToggleTheme } from 'ui'
+import { ExternalLink } from 'ui'
 
 export default function Home() {
   return (
@@ -11,7 +10,6 @@ export default function Home() {
             This is a dapp monorepo template setup{' '}
             <ExternalLink href="http://localhost:3001">Check the docs</ExternalLink>
           </p>
-          <ToggleTheme />
         </div>
       </div>
     </div>

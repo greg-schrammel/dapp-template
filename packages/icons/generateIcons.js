@@ -8,7 +8,7 @@ const path = require('path')
 /** @type {Config["template"]} */
 const template = ({ imports, interfaces, componentName, props, jsx }, { tpl }) => {
   return tpl`
-    import clsx from 'clsx'
+    import { cx } from '@ui/utils'
     ${imports}
     ${interfaces}
 
@@ -21,7 +21,7 @@ const svgrConfig = {
   plugins: ['@svgr/plugin-svgo', '@svgr/plugin-jsx', '@svgr/plugin-prettier'],
   replaceAttrValues: { '#000': 'currentColor', black: 'currentColor' },
   svgProps: {
-    className: "{clsx('h-[1em] w-[1em]', props.className)}",
+    className: "{cx('h-[1em] w-[1em]', props.className)}",
   },
   expandProps: 'start',
   svgoConfig: {

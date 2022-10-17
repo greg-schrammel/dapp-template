@@ -1,10 +1,10 @@
 import * as Collapsible from '@radix-ui/react-collapsible'
-import clsx from 'clsx'
 import { AnimatePresence, motion } from 'framer-motion'
 import { useRouter } from 'next/dist/client/router'
+import Link from 'next/link'
 import { useState } from 'react'
+import { cx } from 'ui'
 import { useIsMounted } from 'utils/isMounted'
-import { Link } from './Link'
 
 type Link = { section: string; name: string; route: string; path: string }
 
@@ -19,16 +19,14 @@ const NavLink = ({
   return (
     <Link href={href}>
       <div
-        className={clsx(
+        className={cx(
           'font-base hover:bg-secondary hover:border-background-contrast/5 group -mx-2 w-auto rounded-sm border border-transparent px-2 py-1',
           'focus:no-underline active:opacity-90',
+          'cursor-pointer',
         )}
       >
         <span
-          className={clsx(
-            'group-hover:text-high',
-            active ? 'text-high font-medium' : 'text-medium',
-          )}
+          className={cx('group-hover:text-high', active ? 'text-high font-medium' : 'text-medium')}
         >
           {children}
         </span>
@@ -44,8 +42,8 @@ const NavSection = ({ name, links }: { name: string; links: Link[] }) => {
   return (
     <Collapsible.Root className="flex flex-col" key={name} open={isOpen} onOpenChange={setIsOpen}>
       <Collapsible.Trigger
-        className={clsx(
-          `hover:text-medium text-low py-1 text-left text-sm font-semibold uppercase`,
+        className={cx(
+          `hover:text-medium text-low py-1 text-left text-xs font-semibold uppercase`,
           !isOpen && 'text-medium hover:text-high',
         )}
       >
@@ -57,8 +55,16 @@ const NavSection = ({ name, links }: { name: string; links: Link[] }) => {
           {isOpen && (
             <motion.div
               variants={{
-                open: { opacity: 1, transition: { staggerChildren: 0.1, staggerDirection: 1 } },
-                close: { opacity: 0, transition: { staggerChildren: 0.1, staggerDirection: -1 } },
+                open: {
+                  marginBottom: '16px',
+                  opacity: 1,
+                  transition: { staggerChildren: 0.1, staggerDirection: 1 },
+                },
+                close: {
+                  marginBottom: '0',
+                  opacity: 0,
+                  transition: { staggerChildren: 0.1, staggerDirection: -1 },
+                },
               }}
               initial="close"
               animate="open"
@@ -89,8 +95,6 @@ const NavSection = ({ name, links }: { name: string; links: Link[] }) => {
 export type SidebarProps = { links: Link[]; isOpen: boolean }
 
 export const Sidebar = ({ links, isOpen }: SidebarProps) => {
-  const router = useRouter()
-
   const componentsLinks = links.filter((l) => l.section === 'components') ?? []
   const guidesLinks = links.filter((l) => l.section === 'guides') ?? []
 
@@ -99,14 +103,14 @@ export const Sidebar = ({ links, isOpen }: SidebarProps) => {
       initial={{ x: 0, opacity: 0 }}
       animate={{ x: 0, opacity: 1 }}
       exit={{ x: -200, opacity: 0 }}
-      className={clsx(
+      className={cx(
         'fixed top-14 z-20 h-screen px-4',
-        isOpen ? 'bg-primary/90 w-full backdrop-blur-md' : 'w-52',
+        isOpen ? 'bg-primary/90 w-full backdrop-blur-md' : 'lg:w-52',
       )}
     >
       <div className="flex flex-col">
-        <div className={clsx(isOpen ? 'block' : 'hidden', 'h-full pt-5 md:pb-48 lg:block')}>
-          <div className="flex flex-col gap-6">
+        <div className={cx(isOpen ? 'block' : 'hidden', 'h-full pt-5 md:pb-48 lg:block')}>
+          <div className="flex flex-col gap-2">
             <NavSection name="guides" links={guidesLinks} />
             <NavSection name="components" links={componentsLinks} />
           </div>

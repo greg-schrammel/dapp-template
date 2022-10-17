@@ -1,9 +1,8 @@
-import clsx from 'clsx'
 import dynamic from 'next/dynamic'
 import Highlight, { defaultProps, Language, PrismTheme } from 'prism-react-renderer'
 import vsDark from 'prism-react-renderer/themes/vsDark'
 import { FC } from 'react'
-
+import { cx, theme as appTheme } from 'ui'
 import { CopyButton } from './CopyButton'
 
 const CodePreview = dynamic(() => import('./CodePreview').then((mod) => mod.CodePreview), {
@@ -21,8 +20,8 @@ const theme: PrismTheme = {
   ...vsDark,
   plain: {
     ...vsDark.plain,
-    color: 'var(--text-high)',
-    backgroundColor: 'var(--bg-secondary)',
+    color: appTheme.text.high,
+    backgroundColor: appTheme.background.secondary,
   },
 }
 
@@ -39,12 +38,12 @@ const CodeStatic = ({ language, code }: { language: Language; code: string }) =>
           {tokens.map((line, i) => {
             const { className: lineClassName, ...lineProps } = getLineProps({ line, key: i })
             return (
-              <div key={i} className={clsx(lineClassName, 'whitespace-pre-wrap')} {...lineProps}>
+              <div key={i} className={cx(lineClassName, 'whitespace-pre-wrap')} {...lineProps}>
                 {line.map((token, key) => {
                   const { className: tokenClassName, ...tokenProps } = getTokenProps({ token, key })
                   return (
                     <span
-                      className={clsx(tokenClassName, 'font-mono text-sm')}
+                      className={cx(tokenClassName, 'font-mono text-sm')}
                       key={key}
                       {...tokenProps}
                     />
@@ -65,9 +64,9 @@ export const CodeBlock: FC<Props> = ({ children, className, live }) => {
 
   return (
     <div
-      className={clsx(
+      className={cx(
         'bg-secondary text-high border-primary hover:border-secondary relative my-2 rounded-xl border p-3 leading-snug',
-        !language && 'inline-block rounded-lg border py-0 px-1.5 leading-tight',
+        !language ? 'inline-block rounded-sm border py-0 px-1.5 leading-tight' : null,
       )}
     >
       {live ? (

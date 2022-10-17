@@ -9,7 +9,7 @@ const darkTheme = {
   },
   border: {
     primary: grey[500],
-    secondary: grey[800],
+    secondary: grey[400],
   },
   background: {
     primary: grey[800],
@@ -30,7 +30,7 @@ const lightTheme = {
   },
   border: {
     primary: grey[100],
-    secondary: grey[800],
+    secondary: grey[200],
   },
   background: {
     primary: grey[50],

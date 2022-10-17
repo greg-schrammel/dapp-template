@@ -17,10 +17,10 @@
     "@fontsource/inter": "^4.5.12",
     "@mertasan/tailwindcss-variables": "^2.5.1",
     "@radix-ui/react-slot": "^1.0.0",
+    "@radix-ui/react-tooltip": "^1.0.0",
     "class-variance-authority": "^0.2.3",
-    "clsx": "^1.2.1",
-    "icons": "workspace:*",
     "hooks": "workspace:*",
+    "icons": "workspace:*",
     "next-themes": "^0.2.1",
     "postcss-import": "^15.0.0",
     "react-number-format": "5.0.0-beta.5"

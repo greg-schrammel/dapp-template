@@ -30,10 +30,7 @@ export type NumberInputProps = {
   onValueChange: OnValueChange
   value: string | number | undefined
   placeholder: string
-  /**
-   * if set to `false` negative numbers will not be allowed
-   * default: true
-   */
+  /** if set to `false` negative numbers will not be allowed */
   allowNegative?: boolean
   /** limits the number of digits after the decimal point */
   decimalScale?: number
@@ -45,9 +42,9 @@ export const NumberInput = ({
   value,
   onValueChange,
   placeholder,
-  allowNegative,
+  allowNegative = true,
   decimalScale,
-  fullWidth,
+  fullWidth = false,
 }: NumberInputProps) => {
   return (
     <NumericFormat

@@ -2,7 +2,7 @@ import { Hydrate, HydrateProps, QueryClient, QueryClientProvider } from '@tansta
 import { ConnectKitProvider } from 'connectkit'
 import { PropsWithChildren, useState } from 'react'
 import { ckTheme } from 'styles/connectKitTheme'
-import { chain, configureChains, createClient, WagmiConfig } from 'wagmi'
+import { chain, configureChains, createClient, useConnect, WagmiConfig } from 'wagmi'
 import { InjectedConnector } from 'wagmi/connectors/injected'
 import { MetaMaskConnector } from 'wagmi/connectors/metaMask'
 import { WalletConnectConnector } from 'wagmi/connectors/walletConnect'
@@ -24,6 +24,9 @@ const connectors = [
   new WalletConnectConnector({ chains, options: { qrcode: false } }),
 ]
 
+const isServer = typeof window === 'undefined'
+const isIframe = !isServer && window?.parent !== window
+
 const client = createClient({
   autoConnect: true,
   connectors,
@@ -40,6 +43,14 @@ const _ConnectKitProvider = ({ children }: PropsWithChildren) => {
   )
 }
 
+const AutoConnect = () => {
+  // auto connects to gnosis safe if in context
+  const { connect, connectors } = useConnect()
+  const safeConnector = connectors.find((c) => c.id === 'safe')
+  if (safeConnector?.ready) connect({ connector: safeConnector })
+  return null
+}
+
 export function AppProviders({
   children,
   state,
@@ -50,6 +61,7 @@ export function AppProviders({
     <QueryClientProvider client={queryClient}>
       <Hydrate state={state}>
         <WagmiConfig client={client}>
+          {isIframe && <AutoConnect />}
           <ThemeProvider>
             <_ConnectKitProvider>{children}</_ConnectKitProvider>
           </ThemeProvider>
