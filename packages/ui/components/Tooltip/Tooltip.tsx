@@ -25,7 +25,7 @@ export function Tooltip({
         sideOffset={4}
         {...props}
         className={cx(
-          'bg-secondary/95 text-low max-w-md rounded border p-2 text-xs',
+          'bg-secondary/95 text-low max-w-md rounded-sm border p-2 text-xs',
           props.className,
         )}
       >
