@@ -36,7 +36,7 @@ config
   └─ eslint and prettier configs
 ```
 
-### What have be configured by project
+### What you should fill/edit before deploying prod
 - .envs, apps comes with a .env-example
 - `<MetaHead />` Component
 - manifest.json (used for custom gnosis apps)
