@@ -11,7 +11,7 @@ export default function Home() {
             <ExternalLink
               href={
                 process.env.NODE_ENV === 'production'
-                  ? 'https://dapp-monorepo-docs.vercel.app/'
+                  ? 'https://docs-dapp-t.vercel.app'
                   : 'http://localhost:3001'
               }
             >
