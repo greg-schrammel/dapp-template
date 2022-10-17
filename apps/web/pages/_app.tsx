@@ -22,16 +22,16 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
   const Layout = Component.Layout || DefaultLayout
 
   return (
-    <ErrorBoundary
-      // onError={(error, info) => /* send error to track */}
-      fallbackRender={ErrorFallback}
-    >
-      <AppProviders state={pageProps.dehydratedState}>
-        <MetaHead meta={Component.Meta} />
-        <Layout>
+    <AppProviders state={pageProps.dehydratedState}>
+      <MetaHead meta={Component.Meta} />
+      <Layout>
+        <ErrorBoundary
+          // onError={(error, info) => /* send error to track */}
+          fallbackRender={ErrorFallback}
+        >
           <Component {...pageProps} />
-        </Layout>
-      </AppProviders>
-    </ErrorBoundary>
+        </ErrorBoundary>
+      </Layout>
+    </AppProviders>
   )
 }

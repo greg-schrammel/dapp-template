@@ -13,10 +13,10 @@ const buttonStyles = cva(buttonBaseStyles(), {
   variants: {
     variant: {
       primary: ['text-low bg-tertiary outline-border border outline-2'],
-      secondary: ['hover:bg-tertiary'],
+      secondary: ['text-low hover:text-high hover:bg-tertiary'],
     },
     size: {
-      sm: 'py-1 px-2',
+      sm: 'py-1 px-3 rounded-sm',
       md: 'py-2 px-4',
       lg: 'py-3 px-8',
     },
@@ -24,7 +24,7 @@ const buttonStyles = cva(buttonBaseStyles(), {
     fullWidth: { true: 'w-full', false: 'w-auto' },
   },
   compoundVariants: [
-    { size: 'sm', bleed: true, class: '-my-1 -mx-1' },
+    { size: 'sm', bleed: true, class: '-my-1 -mx-3' },
     { size: 'md', bleed: true, class: '-my-2 -mx-4' },
     { size: 'lg', bleed: true, class: '-my-3 -mx-8' },
   ],
@@ -74,12 +74,12 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     if (variant === 'icon')
       return <button ref={ref} {...props} className={iconButtonStyles({ size })} />
 
-    const Component = props.asChild ? Slot : 'button'
-    const { bleed, fullWidth } = props
+    const { bleed, fullWidth, asChild, ...baseProps } = props
+    const Component = asChild ? Slot : 'button'
     return (
       <Component
         ref={ref}
-        {...props}
+        {...baseProps}
         className={buttonStyles({ variant, size, bleed, fullWidth })}
       />
     )

@@ -23,15 +23,15 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
   const Layout = Component.Layout || DocsLayout
 
   return (
-    <ErrorBoundary fallbackRender={ErrorFallback}>
-      <ThemeProvider>
-        <MDXProvider components={MDX}>
-          <MetaHead meta={Component.Meta} />
-          <Layout>
+    <ThemeProvider>
+      <MDXProvider components={MDX}>
+        <MetaHead meta={Component.Meta} />
+        <Layout>
+          <ErrorBoundary fallbackRender={ErrorFallback}>
             <Component {...pageProps} />
-          </Layout>
-        </MDXProvider>
-      </ThemeProvider>
-    </ErrorBoundary>
+          </ErrorBoundary>
+        </Layout>
+      </MDXProvider>
+    </ThemeProvider>
   )
 }
