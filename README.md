@@ -38,7 +38,7 @@ config
 
 ### What have be configured by project
 - .envs in projects with a .env-example
-- <MetaHead /> Component
+- `<MetaHead />` Component
 - manifest.json (used for custom gnosis apps)
 
 ### Run
