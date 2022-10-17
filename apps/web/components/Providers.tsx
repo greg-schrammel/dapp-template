@@ -1,3 +1,4 @@
+import { SafeConnector } from '@gnosis.pm/safe-apps-wagmi'
 import { Hydrate, HydrateProps, QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { ConnectKitProvider } from 'connectkit'
 import { PropsWithChildren, useEffect, useState } from 'react'
@@ -19,6 +20,7 @@ const { webSocketProvider, provider, chains } = configureChains(
 )
 
 const connectors = [
+  new SafeConnector({ chains }),
   new InjectedConnector({ chains }),
   new MetaMaskConnector({ chains }),
   new WalletConnectConnector({ chains, options: { qrcode: false } }),

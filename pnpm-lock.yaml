@@ -117,6 +117,7 @@ importers:
 
   apps/web:
     specifiers:
+      '@gnosis.pm/safe-apps-wagmi': ^1.0.4
       '@tanstack/react-query': ^4.3.9
       '@types/ms': ^0.7.31
       '@types/node': ^18.7.18
@@ -144,6 +145,7 @@ importers:
       ui: workspace:*
       wagmi: ^0.6.6
     dependencies:
+      '@gnosis.pm/safe-apps-wagmi': 1.0.4_@wagmi+core@0.5.6
       '@tanstack/react-query': 4.3.9_xrqomain73plncaatc7xzilvwu
       '@types/ms': 0.7.31
       chart.js: 3.9.1
@@ -2056,6 +2058,50 @@ packages:
     resolution: {integrity: sha512-bGKk4/8tube/nCk8hav0ZDBVbzJzc7m0Vt4xF5p15IN4YImwGdtKG38Oq5bU8xHNS+VfvbFFCepgQNj7Pr/Lvg==}
     dev: false
 
+  /@gnosis.pm/safe-apps-provider/0.14.0:
+    resolution: {integrity: sha512-qOkPUfIu9dLoy4Muo40xzswqix7ZoJDmtEl35D+oYYa6JDw8cr4tVkPPjl6eDPNtMLiqGjs1POzHdZrfC8aHVw==}
+    dependencies:
+      '@gnosis.pm/safe-apps-sdk': 7.8.0
+      events: 3.3.0
+    transitivePeerDependencies:
+      - bufferutil
+      - encoding
+      - utf-8-validate
+    dev: false
+
+  /@gnosis.pm/safe-apps-sdk/7.8.0:
+    resolution: {integrity: sha512-kO8fJi1ebiKN9qH1NdDToVBuDQQ0U9NkL467U+84LtNTx5PzUJIu6O7tb4nZD24e/OItinf5W8GDWhhfZeiqOA==}
+    dependencies:
+      '@gnosis.pm/safe-react-gateway-sdk': 3.4.2
+      ethers: 5.7.1
+    transitivePeerDependencies:
+      - bufferutil
+      - encoding
+      - utf-8-validate
+    dev: false
+
+  /@gnosis.pm/safe-apps-wagmi/1.0.4_@wagmi+core@0.5.6:
+    resolution: {integrity: sha512-D0jJLhhJO6WmWl47UBmHS8PBvStLTM2mHobtUdwJHNK//4sTStrmQ2RexUhzbvbEimFfEXKJOexTN66z/slHpQ==}
+    peerDependencies:
+      '@wagmi/core': '>= 0.3.8 < 0.6.0'
+    dependencies:
+      '@gnosis.pm/safe-apps-provider': 0.14.0
+      '@gnosis.pm/safe-apps-sdk': 7.8.0
+      '@wagmi/core': 0.5.6_ethers@5.7.1+react@18.2.0
+    transitivePeerDependencies:
+      - bufferutil
+      - encoding
+      - utf-8-validate
+    dev: false
+
+  /@gnosis.pm/safe-react-gateway-sdk/3.4.2:
+    resolution: {integrity: sha512-UxpRcrmn4UhtCc6IFMVALuL+NsyWzqi+jmId/WKdD347B705GpLALGcl1DgsfvTvwCMZlPtHwiiEVhvcgkOw8Q==}
+    dependencies:
+      cross-fetch: 3.1.5
+    transitivePeerDependencies:
+      - encoding
+    dev: false
+
   /@hapi/hoek/9.3.0:
     resolution: {integrity: sha512-/c6rf4UJlmHlC9b5BaNvzAcFv7HZ2QHaV0D4/HNlBdvFnvQq8RI4kYdhyPCl7Xj+oWvTWQ8ujhqS53LIgAe6KQ==}
     dev: false
@@ -3551,6 +3597,26 @@ packages:
     dependencies:
       '@typescript-eslint/types': 5.38.0
       eslint-visitor-keys: 3.3.0
+    dev: false
+
+  /@wagmi/core/0.5.6_ethers@5.7.1+react@18.2.0:
+    resolution: {integrity: sha512-ZGvMVpcl5iN/fXqYxh+lngs980I4R/bMEMVcYjXw5PA67PB1I53paapsPUBt+0ID2QIShyyxZ/qKmhg7FstNWA==}
+    peerDependencies:
+      '@coinbase/wallet-sdk': '>=3.3.0'
+      '@walletconnect/ethereum-provider': '>=1.7.5'
+      ethers: '>=5.5.1'
+    peerDependenciesMeta:
+      '@coinbase/wallet-sdk':
+        optional: true
+      '@walletconnect/ethereum-provider':
+        optional: true
+    dependencies:
+      ethers: 5.7.1
+      eventemitter3: 4.0.7
+      zustand: 4.1.1_react@18.2.0
+    transitivePeerDependencies:
+      - immer
+      - react
     dev: false
 
   /@wagmi/core/0.5.6_tfiwhtsxmbuzlsdgmvivdffaee:
