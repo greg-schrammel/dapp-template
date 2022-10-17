@@ -2,7 +2,8 @@ import { ExternalIcon } from 'icons'
 import { AnchorHTMLAttributes } from 'react'
 import { cx } from '../../utils'
 
-export const ExternalLink = ({ href, children, className }: AnchorHTMLAttributes<{}>) => {
+export type ExternalLinkProps = AnchorHTMLAttributes<{}>
+export const ExternalLink = ({ href, children, className }: ExternalLinkProps) => {
   return (
     <a
       className={cx(
@@ -14,7 +15,7 @@ export const ExternalLink = ({ href, children, className }: AnchorHTMLAttributes
       target="_blank"
     >
       {children}
-      <ExternalIcon className="text-[10px]" />
+      <ExternalIcon aria-hidden className="text-[10px]" />
     </a>
   )
 }
