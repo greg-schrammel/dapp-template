@@ -1,10 +1,10 @@
 import * as Collapsible from '@radix-ui/react-collapsible'
 import { AnimatePresence, motion } from 'framer-motion'
+import { useIsMounted } from 'hooks'
 import { useRouter } from 'next/dist/client/router'
 import Link from 'next/link'
 import { useState } from 'react'
 import { cx } from 'ui'
-import { useIsMounted } from 'utils/isMounted'
 
 type Link = { section: string; name: string; route: string; path: string }
 

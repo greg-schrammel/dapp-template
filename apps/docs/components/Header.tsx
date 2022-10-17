@@ -1,5 +1,5 @@
 import { MenuIcon } from 'icons'
-import Link from 'next/Link'
+import Link from 'next/link'
 import { ToggleTheme } from 'ui'
 
 export const Header = ({

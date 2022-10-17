@@ -2,7 +2,7 @@ import slugify from '@sindresorhus/slugify'
 import { PropsWithChildren } from 'react'
 
 import { Components as MDXComponents } from '@mdx-js/react/lib/index'
-import Link from 'next/Link'
+import Link from 'next/link'
 import { ExternalLink } from 'ui'
 import { CodeBlock } from './CodeBlock'
 import { PropsTable } from './PropsTable'
