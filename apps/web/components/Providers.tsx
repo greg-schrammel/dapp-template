@@ -1,7 +1,7 @@
 import { SafeConnector } from '@gnosis.pm/safe-apps-wagmi'
 import { Hydrate, HydrateProps, QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { ConnectKitProvider } from 'connectkit'
-import { PropsWithChildren, useState } from 'react'
+import { PropsWithChildren, useEffect, useState } from 'react'
 import { ckTheme } from 'styles/connectKitTheme'
 import { chain, configureChains, createClient, useConnect, WagmiConfig } from 'wagmi'
 import { InjectedConnector } from 'wagmi/connectors/injected'
@@ -48,8 +48,10 @@ const _ConnectKitProvider = ({ children }: PropsWithChildren) => {
 const AutoConnect = () => {
   // auto connects to gnosis safe if in context
   const { connect, connectors } = useConnect()
-  const safeConnector = connectors.find((c) => c.id === 'safe')
-  if (safeConnector?.ready) connect({ connector: safeConnector })
+  useEffect(() => {
+    const safeConnector = connectors.find((c) => c.id === 'safe')
+    if (safeConnector?.ready) connect({ connector: safeConnector })
+  }, [connect, connectors])
   return null
 }
 
