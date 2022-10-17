@@ -9,7 +9,7 @@ All code in this template should/must be modified as you wish, I'm not romantic 
 
 ```
 .vscode
-  └─ Recommended extensions and settings for VSCode users
+  └─ Recommended extensions and settings
 .husky
   └─ Runs lint-staged precommit
 apps
