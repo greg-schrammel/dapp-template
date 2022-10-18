@@ -1,0 +1,20 @@
+# Theme
+
+Wrap your next app with a ThemeProvider 
+
+```tsx
+import type { AppProps } from 'next/app'
+import { ThemeProvider } from 'ui'
+
+export default function App({ Component, pageProps }: AppProps<{}>) {
+    <ThemeProvider>
+        ...
+    </ThemeProvider>
+}
+```
+
+## ToggleTheme
+
+```tsx live=true
+    <ToggleTheme />
+```

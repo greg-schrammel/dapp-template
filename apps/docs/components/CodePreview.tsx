@@ -34,7 +34,7 @@ export const CodePreview = ({ code, language, theme }: Props) => {
     >
       <div className="overflow-visible p-3" ref={previewRef}>
         <LivePreview />
-        <LiveError className="font-mono text-sm text-red-500" />
+        <LiveError className="font-mono text-xs text-red-500" />
       </div>
       <div className="-mx-3 my-2 border-t border-white/10" />
       <div className="relative py-2">
