@@ -11,3 +11,22 @@ import { Button } from 'ui'
 ## Props
 
 <PropsTable sourceLink={sourceLink} types={types} />
+
+
+## Icon variant
+
+```tsx live=true
+<div className="flex items-center gap-2">  
+  <Button variant="icon" size="sm">
+    <CloseIcon title="wallet" />
+  </Button>
+
+  <Button variant="icon">
+    <WalletIcon title="wallet" />
+  </Button>
+  
+  <Button variant="icon">
+    <MenuIcon title="wallet" />
+  </Button>
+</div>
+```
