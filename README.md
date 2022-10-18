@@ -1,7 +1,7 @@
 # dapp monorepo template
 
 
-The idea is the whole codebase to be forked and changed by use case.  
+It's intentionally not a package or a set of packages, the idea is the whole codebase to be forked and changed by use case.  
 
 All code in this template should/must be modified as you wish, I'm not romantic with any of it, I'll be happy if you change everything and submit a pr any new config/component/hook/util you think is missing is welcome 
 
