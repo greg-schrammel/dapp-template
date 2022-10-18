@@ -5,11 +5,11 @@ import type { AppProps } from 'next/app'
 import { ErrorBoundary } from 'react-error-boundary'
 
 import ErrorFallback from 'components/ErrorFallback'
-import { AppProviders } from 'components/Providers'
+import { Providers } from 'components/Providers'
 import 'styles/globals.css'
 import 'ui/fonts'
 
-type PageProps = { dehydratedState: Object }
+export type PageProps = { dehydratedState: Object }
 
 type AppPropsWithLayout = AppProps<PageProps> & {
   Component: NextComponentType<any, any, PageProps> & {
@@ -22,7 +22,7 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
   const Layout = Component.Layout || DefaultLayout
 
   return (
-    <AppProviders state={pageProps.dehydratedState}>
+    <Providers pageProps={pageProps}>
       <MetaHead meta={Component.Meta} />
       <Layout>
         <ErrorBoundary
@@ -32,6 +32,6 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
           <Component {...pageProps} />
         </ErrorBoundary>
       </Layout>
-    </AppProviders>
+    </Providers>
   )
 }

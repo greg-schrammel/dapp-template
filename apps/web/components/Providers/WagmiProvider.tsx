@@ -1,15 +1,10 @@
 import { SafeConnector } from '@gnosis.pm/safe-apps-wagmi'
-import { Hydrate, HydrateProps, QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { ConnectKitProvider } from 'connectkit'
-import { PropsWithChildren, useEffect, useState } from 'react'
-import { ckTheme } from 'styles/connectKitTheme'
+import { PropsWithChildren, useEffect } from 'react'
 import { chain, configureChains, createClient, useConnect, WagmiConfig } from 'wagmi'
 import { InjectedConnector } from 'wagmi/connectors/injected'
 import { MetaMaskConnector } from 'wagmi/connectors/metaMask'
 import { WalletConnectConnector } from 'wagmi/connectors/walletConnect'
 import { infuraProvider } from 'wagmi/providers/infura'
-
-import { ThemeProvider, useTheme } from 'ui'
 
 export const appChains = [chain.mainnet, chain.goerli]
 
@@ -36,15 +31,6 @@ const client = createClient({
   webSocketProvider,
 })
 
-const _ConnectKitProvider = ({ children }: PropsWithChildren) => {
-  const { resolvedTheme } = useTheme()
-  return (
-    <ConnectKitProvider customTheme={ckTheme} mode={resolvedTheme as 'light' | 'dark'}>
-      {children}
-    </ConnectKitProvider>
-  )
-}
-
 const AutoConnect = () => {
   // auto connects to gnosis safe if in context
   const { connect, connectors } = useConnect()
@@ -55,22 +41,11 @@ const AutoConnect = () => {
   return null
 }
 
-export function AppProviders({
-  children,
-  state,
-}: PropsWithChildren<{ state: HydrateProps['state'] }>) {
-  const [queryClient] = useState(() => new QueryClient())
-
+export function WagmiProvider({ children }: PropsWithChildren<{}>) {
   return (
-    <QueryClientProvider client={queryClient}>
-      <Hydrate state={state}>
-        <WagmiConfig client={client}>
-          {isIframe && <AutoConnect />}
-          <ThemeProvider>
-            <_ConnectKitProvider>{children}</_ConnectKitProvider>
-          </ThemeProvider>
-        </WagmiConfig>
-      </Hydrate>
-    </QueryClientProvider>
+    <WagmiConfig client={client}>
+      {isIframe && <AutoConnect />}
+      {children}
+    </WagmiConfig>
   )
 }
