@@ -12,7 +12,7 @@
     "dev:web": "FORCE_COLOR=1 turbo run dev --filter web",
     "gen-icons": "turbo run build --filter icons",
     "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "format": "prettier --write \"**/*.{ts,tsx,mdx}\"",
     "clean": "rimraf \"./**/{node_modules,dist,.turbo,.next,.eslintcache,.vercel}\"",
     "prepare": "husky install",
     "precommit": "lint-staged"
