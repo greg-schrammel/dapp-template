@@ -20,14 +20,8 @@ const buttonStyles = cva(buttonBaseStyles(), {
       md: 'py-2 px-4',
       lg: 'py-3 px-8',
     },
-    bleed: { true: '', false: '' },
     fullWidth: { true: 'w-full', false: 'w-auto' },
   },
-  compoundVariants: [
-    { size: 'sm', bleed: true, class: '-my-1 -mx-3' },
-    { size: 'md', bleed: true, class: '-my-2 -mx-4' },
-    { size: 'lg', bleed: true, class: '-my-3 -mx-8' },
-  ],
   defaultVariants: { variant: 'primary', size: 'md' },
 })
 
@@ -47,8 +41,6 @@ const iconButtonStyles = cva(
 type DefaultButtonProps = {
   /** width 100% */
   fullWidth?: boolean
-  /** counters the button padding with negative margin */
-  bleed?: boolean
   /** Change the component to the HTML tag or custom component of the only child.
    * This will merge the original component props with the props of the supplied
    * element/component and change the underlying DOM node. */
@@ -58,7 +50,6 @@ type DefaultButtonProps = {
 type IconButtonProps = {
   variant: 'icon'
   asChild?: never
-  bleed?: never
   fullWidth?: never
 } & VariantProps<typeof iconButtonStyles>
 
@@ -74,14 +65,10 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     if (variant === 'icon')
       return <button ref={ref} {...props} className={iconButtonStyles({ size })} />
 
-    const { bleed, fullWidth, asChild, ...baseProps } = props
+    const { fullWidth, asChild, ...baseProps } = props
     const Component = asChild ? Slot : 'button'
     return (
-      <Component
-        ref={ref}
-        {...baseProps}
-        className={buttonStyles({ variant, size, bleed, fullWidth })}
-      />
+      <Component ref={ref} {...baseProps} className={buttonStyles({ variant, size, fullWidth })} />
     )
   },
 )
