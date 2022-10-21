@@ -20,8 +20,8 @@ const theme: PrismTheme = {
   ...vsDark,
   plain: {
     ...vsDark.plain,
-    color: appTheme.text.high,
-    backgroundColor: appTheme.background.secondary,
+    color: appTheme.colors.text.high,
+    backgroundColor: appTheme.colors.background.secondary,
   },
 }
 

@@ -1,3 +1,4 @@
+export { ArrowDownIcon } from './ArrowDownIcon'
 export { CheckIcon } from './CheckIcon'
 export { CloseIcon } from './CloseIcon'
 export { CopyIcon } from './CopyIcon'

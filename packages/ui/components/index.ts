@@ -1,5 +1,6 @@
 export * from './Button'
 export * from './ExternalLink'
-export * from './NumberInput'
+export * from './Input'
+export * from './Popover'
 export * from './Theme'
 export * from './Tooltip'

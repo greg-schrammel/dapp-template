@@ -6,10 +6,10 @@ const buttonBaseStyles = cva([
   'h-min transition-all rounded relative',
   'font-semibold font-sans',
   'hover:text-high hover:outline outline-transparent',
-  'focus:outline focus:outline-background-contrast',
+  'focus:outline focus:outline-background-contrast focus:bg-tertiary',
 ])
 
-const buttonStyles = cva(buttonBaseStyles(), {
+const buttonStyles = cva(buttonBaseStyles({ class: 'flex gap-2 items-center justify-center' }), {
   variants: {
     variant: {
       primary: ['text-low bg-tertiary outline-border border outline-2'],

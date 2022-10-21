@@ -20,7 +20,9 @@ export interface MetaProps {
 export const MetaHead = ({ meta: _meta }: { meta?: MetaProps }): JSX.Element => {
   const { resolvedTheme } = useTheme()
   const themeColor =
-    resolvedTheme === 'light' ? lightTheme.background.primary : darkTheme.background.primary // not super happy with this
+    resolvedTheme === 'light'
+      ? lightTheme.colors.background.primary
+      : darkTheme.colors.background.primary // not super happy with this
   const router = useRouter()
   const meta: MetaProps = {
     title: '',
