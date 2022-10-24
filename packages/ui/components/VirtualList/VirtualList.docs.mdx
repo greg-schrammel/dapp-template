@@ -1,0 +1,24 @@
+# VirtualList
+
+Virtualize large element lists  
+React component wrapping `@tanstack/react-virtual`
+
+
+```tsx
+import { VirtualList } from 'ui'
+```
+
+```tsx live=true
+<div className="w-full overflow-scroll max-h-48">
+  <VirtualList
+    data={Array.from({ length: 10000 }, (v, i) => i)}
+    renderItem={(item) => (<div>item {item}</div>)}
+    itemHeight={24}
+    className="-mx-1 px-1"
+  />
+</div>
+```
+
+## Props
+
+<PropsTable sourceLink={sourceLink} types={types} />

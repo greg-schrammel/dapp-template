@@ -1,8 +1,6 @@
 import { useQuery } from '@tanstack/react-query'
-import { useVirtualizer } from '@tanstack/react-virtual'
 import Image from 'next/future/image'
-import { ReactNode, useRef } from 'react'
-import { Button, cx, Dialog, DialogContent, DialogTrigger, Input } from 'ui'
+import { Button, Dialog, DialogContent, DialogTrigger, Input, VirtualList } from 'ui'
 
 type Token = {
   chainId: number
@@ -57,44 +55,6 @@ const CurrencySelectorItem = ({
     </div>
   </Button>
 )
-
-const VirtualList = <ListItemData extends Object>({
-  data,
-  itemHeight,
-  renderItem,
-  className,
-}: {
-  data: ListItemData[]
-  itemHeight: number
-  renderItem: (item: ListItemData) => ReactNode
-  className: string
-}) => {
-  const listRef = useRef<HTMLDivElement>(null)
-  const virtualizer = useVirtualizer({
-    count: data.length,
-    getScrollElement: () => listRef.current,
-    estimateSize: () => itemHeight,
-  })
-
-  return (
-    <div ref={listRef} className={cx('overflow-auto', className)}>
-      <div className="relative w-full" style={{ height: `${virtualizer.getTotalSize()}px` }}>
-        {virtualizer.getVirtualItems().map((virtualItem) => (
-          <div
-            key={virtualItem.index}
-            className="absolute top-0 left-0 w-full"
-            style={{
-              height: `${virtualItem.size}px`,
-              transform: `translateY(${virtualItem.start}px)`,
-            }}
-          >
-            {renderItem(data[virtualItem.index])}
-          </div>
-        ))}
-      </div>
-    </div>
-  )
-}
 
 export const CurrencySelector = ({ tokenList = UniswapDefaultTokenList }) => {
   const { data, isSuccess } = useTokenList(tokenList)
