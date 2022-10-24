@@ -8,6 +8,14 @@ const nextConfig = {
   images: {
     formats: ['image/avif', 'image/webp'],
   },
+  async rewrites() {
+    return [
+      {
+        source: '/docs',
+        destination: 'https://docs-dapp-t.vercel.app',
+      },
+    ]
+  },
 }
 
 module.exports = withTM(nextConfig)
