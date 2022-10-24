@@ -11,11 +11,15 @@ const nextConfig = {
   async rewrites() {
     return [
       {
+        source: '/:path*',
+        destination: `/:path*`,
+      },
+      {
         source: '/docs/:path*',
         destination:
           process.env.NODE_ENV === 'development'
-            ? 'localhost:3001/:path*'
-            : 'https://docs-dapp-t.vercel.app/:path*',
+            ? 'http://localhost:3001/docs/:path*'
+            : 'https://docs-dapp-t.vercel.app/docs/:path*',
       },
     ]
   },

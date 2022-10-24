@@ -16,6 +16,7 @@ const withMDX = nextMDX({
 const nextConfig = {
   env: { links },
   pageExtensions: ['mdx', 'tsx'],
+  basePath: '/docs',
   reactStrictMode: true,
   trailingSlash: false,
   swcMinify: true,
