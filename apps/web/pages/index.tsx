@@ -9,15 +9,7 @@ export default function Home() {
           <h1 className="text-2xl font-extrabold">Hey 👋</h1>
           <p className="text-low mt-3">
             This is a dapp monorepo template setup{' '}
-            <ExternalLink
-              href={
-                process.env.NODE_ENV === 'production'
-                  ? 'https://docs-dapp-t.vercel.app'
-                  : 'http://localhost:3001'
-              }
-            >
-              Check the docs
-            </ExternalLink>
+            <ExternalLink href="/docs">Check the docs</ExternalLink>
           </p>
         </div>
       </div>
