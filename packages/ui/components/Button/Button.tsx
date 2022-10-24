@@ -5,14 +5,15 @@ import { forwardRef, PropsWithChildren } from 'react'
 const buttonBaseStyles = cva([
   'h-min transition-all rounded relative',
   'font-semibold font-sans',
-  'hover:text-high hover:outline outline-transparent',
-  'focus:outline focus:outline-background-contrast focus:bg-tertiary',
+  'outline-none ring-0 ring-primary',
+  'hover:text-high hover:ring-2',
+  'focus:ring-2 focus:bg-tertiary',
 ])
 
 const buttonStyles = cva(buttonBaseStyles({ class: 'flex gap-2 items-center justify-center' }), {
   variants: {
     variant: {
-      primary: ['text-low bg-tertiary outline-border border outline-2'],
+      primary: ['text-low bg-tertiary border'],
       secondary: ['text-low hover:text-high hover:bg-tertiary'],
     },
     size: {
@@ -26,7 +27,7 @@ const buttonStyles = cva(buttonBaseStyles({ class: 'flex gap-2 items-center just
 })
 
 const iconButtonStyles = cva(
-  buttonBaseStyles({ class: 'text-low hover:bg-tertiary outline-border hover:outline-2' }),
+  buttonBaseStyles({ class: 'text-low hover:bg-tertiary hover:ring-2' }),
   {
     variants: {
       size: {

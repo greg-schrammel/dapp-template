@@ -21,6 +21,7 @@ module.exports = {
       backgroundColor: theme.colors.background,
       textColor: theme.colors.text,
       borderColor: { ...theme.colors.border, DEFAULT: theme.colors.border.primary },
+      ringColor: { ...theme.colors.border, DEFAULT: theme.colors.border.primary },
       outlineColor: { ...theme.colors.border, DEFAULT: theme.colors.border.primary },
       boxShadow: { ...theme.shadow, DEFAULT: theme.shadow.primary },
     },

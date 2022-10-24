@@ -1,3 +1,4 @@
+import { DerivedFields } from 'features/Dex/DerivedFields'
 import { ExternalLink } from 'ui'
 
 export default function Home() {
@@ -20,6 +21,7 @@ export default function Home() {
           </p>
         </div>
       </div>
+      <DerivedFields />
     </div>
   )
 }
