@@ -38,7 +38,7 @@ export const CodePreview = ({ code, language, theme }: Props) => {
       </div>
       <div className="-mx-3 my-2 border-t border-white/10" />
       <div className="relative py-2">
-        <LiveEditor />
+        <LiveEditor className="text-sm" />
 
         <div className="absolute -right-2 -top-1">
           <CopyButton content={code} />

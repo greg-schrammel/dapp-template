@@ -1,35 +1,6 @@
-import { useQuery } from '@tanstack/react-query'
 import Image from 'next/future/image'
 import { Button, Dialog, DialogContent, DialogTrigger, Input, VirtualList } from 'ui'
-
-type Token = {
-  chainId: number
-  address: Address
-  name: string
-  symbol: string
-  decimals: number
-  logoURI: string
-}
-
-type TokenList = {
-  name: string
-  timestamp: string
-  version: {
-    major: number
-    minor: number
-    patch: number
-  }
-  tags: Object
-  logoURI: string
-  keywords: string[]
-  tokens: Token[]
-}
-
-const useTokenList = (tokenListUrl: string) =>
-  useQuery<TokenList>([tokenListUrl], () => fetch(tokenListUrl).then((d) => d.json()), {
-    staleTime: Infinity,
-    cacheTime: Infinity,
-  })
+import { Token, useTokenList } from './hooks/useTokenList'
 
 const UniswapDefaultTokenList = 'https://gateway.ipfs.io/ipns/tokens.uniswap.org'
 

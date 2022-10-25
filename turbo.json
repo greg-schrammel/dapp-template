@@ -6,23 +6,18 @@
       "outputs": [".next/**"]
     },
     "web#build": {
-      "dependsOn": [
-        "^build",
-        "$NEXT_PUBLIC_INFURA_ID",
-        "$NEXT_PUBLIC_ALCHEMY_ID",
-        "$NEXT_PUBLIC_ETHERSCAN_API_KEY",
-        "$NODE_ENV"
+      "env": [
+        "NEXT_PUBLIC_INFURA_ID",
+        "NEXT_PUBLIC_ALCHEMY_ID",
+        "NEXT_PUBLIC_ETHERSCAN_API_KEY",
+        "NODE_ENV"
       ],
+      "dependsOn": ["^build"],
       "outputs": [".next/**"]
     },
     "docs#build": {
-      "dependsOn": [
-        "^build",
-        "$links",
-        "$VERCEL_GIT_REPO_OWNER",
-        "$VERCEL_GIT_REPO_SLUG",
-        "$VERCEL_GIT_COMMIT_REF"
-      ],
+      "env": ["links", "VERCEL_GIT_REPO_OWNER", "VERCEL_GIT_REPO_SLUG", "VERCEL_GIT_COMMIT_REF"],
+      "dependsOn": ["^build"],
       "outputs": [".next/**"]
     },
     "lint": {
