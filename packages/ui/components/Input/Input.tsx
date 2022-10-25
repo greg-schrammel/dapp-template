@@ -44,16 +44,9 @@ export type InputProps = {
 
 export const Input = ({ fullWidth, size, variant, left, right, ...props }: InputProps) => {
   return (
-    <div className={cx(inputStyles({ fullWidth, size, variant }), 'flex items-center')}>
+    <div className={cx(inputStyles({ fullWidth, size, variant }), 'flex items-center gap-2')}>
       {left}
-      <input
-        {...props}
-        className={cx(
-          'h-inherit w-full bg-inherit outline-none',
-          !!right && 'pr-2',
-          !!left && 'pl-2',
-        )}
-      />
+      <input {...props} className="h-inherit w-full bg-inherit outline-none" />
       {right}
     </div>
   )
