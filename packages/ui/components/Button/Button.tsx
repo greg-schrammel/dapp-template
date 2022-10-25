@@ -65,7 +65,15 @@ export type ButtonProps = PropsWithChildren<
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   ({ variant = 'primary', size = 'md', ...props }, ref) => {
     if (variant === 'icon')
-      return <button ref={ref} {...props} className={iconButtonStyles({ size })} />
+      return (
+        <button
+          ref={ref}
+          {...props}
+          className={iconButtonStyles({
+            size: size as VariantProps<typeof iconButtonStyles>['size'], // fix types
+          })}
+        />
+      )
 
     const { fullWidth, asChild, ...baseProps } = props
     const Component = asChild ? Slot : 'button'

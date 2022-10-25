@@ -11,3 +11,9 @@
     font-feature-settings: 'rlig' 1, 'calt' 1, 'ss01' 1, 'ss06' 1 !important;
   }
 }
+
+@layer components {
+  input {
+    mask-image: linear-gradient(90deg, #000 90%, transparent);
+  }
+}
