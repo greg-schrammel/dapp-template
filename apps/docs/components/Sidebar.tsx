@@ -20,9 +20,10 @@ const NavLink = ({
     <Link href={href}>
       <div
         className={cx(
-          'font-base hover:bg-secondary hover:border-background-contrast/5 group -mx-2 w-auto rounded-sm border border-transparent px-2 py-1',
+          'font-base hover:bg-tertiary hover:border-primary group -mx-2 w-auto rounded-sm border border-transparent px-2 py-1',
           'focus:no-underline active:opacity-90',
           'cursor-pointer',
+          active && 'bg-tertiary',
         )}
       >
         <span

@@ -5,10 +5,7 @@ import { cx } from '../..'
 import { ReactNode } from 'react'
 
 export const inputStyles = cva(
-  [
-    'font-sans font-medium placeholder:text-low transition-all',
-    'ring-0 focus-within:ring-2 ring-primary outline-none',
-  ],
+  ['font-sans font-medium transition-all', 'ring-0 focus-within:ring-2 ring-primary outline-none'],
   {
     variants: {
       variant: {
@@ -26,6 +23,7 @@ export const inputStyles = cva(
     },
     defaultVariants: {
       variant: 'primary',
+      size: 'md',
     },
   },
 )
@@ -44,7 +42,7 @@ export const Input = ({ fullWidth, size, variant, left, right, ...props }: Input
   return (
     <div className={cx(inputStyles({ fullWidth, size, variant }), 'flex items-center gap-2')}>
       {left}
-      <input {...props} className="h-inherit w-full bg-inherit outline-none" />
+      <input {...props} className="h-inherit placeholder:text-low w-full bg-inherit outline-none" />
       {right}
     </div>
   )

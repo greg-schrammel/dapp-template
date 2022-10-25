@@ -1,5 +1,5 @@
 import * as Icons from 'icons'
-import NextImage from 'next/future/image'
+import NextImage from 'next/image'
 import NextLink from 'next/link'
 import { Language, PrismTheme } from 'prism-react-renderer'
 import { useRef } from 'react'

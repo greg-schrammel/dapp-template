@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { MagicWandIcon, SearchIcon } from 'icons'
-import Image from 'next/future/image'
+import Image from 'next/image'
 import { useState } from 'react'
 import { Button, Dialog, DialogClose, DialogContent, DialogTrigger, Input, VirtualList } from 'ui'
 import { Token, useTokenList } from './hooks/useTokenList'

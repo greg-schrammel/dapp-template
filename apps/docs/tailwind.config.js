@@ -4,5 +4,5 @@ const baseConfig = require('ui/tailwind.config')
 module.exports = {
   ...baseConfig,
   content: ['**/*.tsx', '../../packages/ui/**/*.tsx'],
-  safelist: ['max-h-48'],
+  safelist: ['max-h-48', '-ml-1'],
 }
