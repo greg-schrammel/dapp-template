@@ -1,6 +1,10 @@
 // organize-imports-ignore
 import { cva } from 'class-variance-authority'
 import type { VariantProps } from 'class-variance-authority'
+import { Button } from '../Button'
+import { MagicWandIcon } from 'icons'
+import { cx } from '../..'
+import { ReactNode } from 'react'
 
 export const inputStyles = cva(
   [
@@ -32,8 +36,25 @@ export type InputProps = {
   onChange?: React.ChangeEventHandler<HTMLInputElement>
   value?: string
   placeholder?: string
+  /** append a react node to the left of the input value */
+  left?: ReactNode
+  /** append a react node to the right of the input value */
+  right?: ReactNode
 } & VariantProps<typeof inputStyles>
 
-export const Input = ({ fullWidth, size, variant, ...props }: InputProps) => {
-  return <input {...props} className={inputStyles({ fullWidth, size, variant })} />
+export const Input = ({ fullWidth, size, variant, left, right, ...props }: InputProps) => {
+  return (
+    <div className={cx(inputStyles({ fullWidth, size, variant }), 'flex items-center')}>
+      {left}
+      <input
+        {...props}
+        className={cx(
+          'h-inherit w-full bg-inherit outline-none',
+          !!right && 'pr-2',
+          !!left && 'pl-2',
+        )}
+      />
+      {right}
+    </div>
+  )
 }

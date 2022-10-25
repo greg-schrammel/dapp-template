@@ -17,7 +17,8 @@ const buttonStyles = cva(buttonBaseStyles({ class: 'flex gap-2 items-center just
       secondary: ['text-low hover:text-high hover:bg-tertiary'],
     },
     size: {
-      sm: 'py-1 px-3 rounded-sm',
+      xs: 'py-1 px-2 text-xs',
+      sm: 'py-1 px-3',
       md: 'py-2 px-4',
       lg: 'py-3 px-8',
     },

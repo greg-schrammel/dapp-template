@@ -12,6 +12,7 @@ export const SunIcon = ({ title, titleId, ...props }: SVGProps<SVGSVGElement> & 
     viewBox="0 0 24 24"
     strokeWidth={1.5}
     stroke="currentColor"
+    role="img"
     className={cx('h-[1em] w-[1em]', props.className)}
     aria-labelledby={titleId}
   >

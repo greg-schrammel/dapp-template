@@ -6,7 +6,7 @@ export type VirtualListProps<ListItemData> = {
   data: ListItemData[]
   itemHeight: number
   renderItem: (item: ListItemData) => ReactNode
-  className: string
+  className?: string
 }
 
 export const VirtualList = <DataType extends Object>({

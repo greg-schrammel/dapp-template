@@ -129,6 +129,7 @@ importers:
       eslint: ^8.23.1
       ethereum-blockies-base64: ^1.0.2
       ethers: 5.7.2
+      framer-motion: ^7.3.5
       hooks: workspace:*
       icons: workspace:*
       ms: ^2.1.3
@@ -153,6 +154,7 @@ importers:
       connectkit: 0.0.2_ir4aqsxa7xgp3cda2fbbk6sf2u
       ethereum-blockies-base64: 1.0.2
       ethers: 5.7.2
+      framer-motion: 7.6.1_biqbaboplfbrettd7655fr4n2y
       hooks: link:../../packages/hooks
       icons: link:../../packages/icons
       ms: 2.1.3

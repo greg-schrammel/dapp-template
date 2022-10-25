@@ -10,6 +10,7 @@ export const WalletIcon = ({ title, titleId, ...props }: SVGProps<SVGSVGElement>
     viewBox="0 0 24 24"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
+    role="img"
     className={cx('h-[1em] w-[1em]', props.className)}
     aria-labelledby={titleId}
   >

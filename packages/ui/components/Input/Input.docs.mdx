@@ -1,11 +1,23 @@
-# NumberInput
+# Input
+
 
 ```tsx
-import { NumberInput } from 'ui'
+import { Input } from 'ui'
 ```
 
 ```tsx live=true
-<Input type="numeric" placeholder="0.00" />
+<Input placeholder="search address" left={<SearchIcon className="text-low -ml-1 text-xl" />} />
+```
+
+## NumberInput
+- Only numbers (no `e`s)
+- Auto formats based on region 
+- Number keyboard on mobile
+
+_Note: (will probably be merged into `<Input />` in the future)_  
+
+```tsx live=true
+<NumberInput placeholder="0.00"  />
 ```
 
 ## Props
