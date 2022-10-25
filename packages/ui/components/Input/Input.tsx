@@ -1,8 +1,6 @@
 // organize-imports-ignore
 import { cva } from 'class-variance-authority'
 import type { VariantProps } from 'class-variance-authority'
-import { Button } from '../Button'
-import { MagicWandIcon } from 'icons'
 import { cx } from '../..'
 import { ReactNode } from 'react'
 
