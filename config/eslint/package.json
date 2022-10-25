@@ -4,7 +4,7 @@
   "main": "index.json",
   "dependencies": {
     "eslint": "^8.23.1",
-    "eslint-config-next": "^12.3.0",
+    "eslint-config-next": "^13.0.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-config-turbo": "latest",
     "eslint-plugin-react": "7.31.10"
