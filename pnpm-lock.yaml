@@ -262,30 +262,32 @@ importers:
 
   packages/ui:
     specifiers:
-      '@fontsource/ibm-plex-mono': ^4.5.12
-      '@fontsource/inter': ^4.5.14
+      '@fontsource/ibm-plex-mono': ^4.5.11
+      '@fontsource/inter': ^4.5.12
       '@mertasan/tailwindcss-variables': ^2.5.1
+      '@next/font': ^13.0.0
       '@radix-ui/react-dialog': ^1.0.2
       '@radix-ui/react-popover': ^1.0.2
-      '@radix-ui/react-slot': ^1.0.1
-      '@radix-ui/react-tooltip': ^1.0.2
+      '@radix-ui/react-slot': ^1.0.0
+      '@radix-ui/react-tooltip': ^1.0.0
       '@tanstack/react-virtual': 3.0.0-beta.18
-      '@types/react': ^18.0.23
-      '@types/react-dom': ^18.0.7
-      autoprefixer: ^10.4.12
-      class-variance-authority: ^0.2.4
-      hooks: workspace:0.0.0
-      icons: workspace:0.0.0
+      '@types/react': ^18.0.20
+      '@types/react-dom': ^18.0.6
+      autoprefixer: ^10.4.11
+      class-variance-authority: ^0.2.3
+      hooks: workspace:*
+      icons: workspace:*
       next-themes: ^0.2.1
-      postcss: ^8.4.18
+      postcss: ^8.4.16
       postcss-import: ^15.0.0
       react-number-format: 5.0.1
-      tailwindcss: ^3.2.1
-      typescript: ^4.8.4
+      tailwindcss: ^3.1.8
+      typescript: ^4.8.3
     dependencies:
       '@fontsource/ibm-plex-mono': 4.5.12
       '@fontsource/inter': 4.5.14
       '@mertasan/tailwindcss-variables': 2.5.1_xkowlklhtk6sfvtndbucb3hfiy
+      '@next/font': 13.0.0
       '@radix-ui/react-dialog': 1.0.2_yyloj25vv7zmuk3uh3z5jonzqq
       '@radix-ui/react-popover': 1.0.2_yyloj25vv7zmuk3uh3z5jonzqq
       '@radix-ui/react-slot': 1.0.1_react@18.2.0
@@ -2372,6 +2374,10 @@ packages:
     resolution: {integrity: sha512-z+gnX4Zizatqatc6f4CQrcC9oN8Us3Vrq/OLyc98h7K/eWctrnV91zFZodmJHUjx0cITY8uYM7LXD7IdYkg3kg==}
     dependencies:
       glob: 7.1.7
+    dev: false
+
+  /@next/font/13.0.0:
+    resolution: {integrity: sha512-r5dYkgMD1Qmoip1OhJSrqCSQdZ4eshkQPfe1hhQiKbZoXIbViJksPRLC6GVOgEQE6W4+CXuAXR6IYBy5M6Rixg==}
     dev: false
 
   /@next/mdx/12.3.1_wuv4qx5dshjptmdbtsqqkih5iu:

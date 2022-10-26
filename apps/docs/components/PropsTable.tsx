@@ -4,7 +4,7 @@ import { PropItem } from 'react-docgen-typescript'
 import { Button, ExternalLink, Tooltip } from 'ui'
 
 type PropsTableProps = {
-  sourceLink?: string
+  componentSourceCodeLink?: string
   types: Record<string, PropItem>
 }
 
@@ -16,7 +16,7 @@ const sortEventsOnTop = (types: PropsTableProps['types']) =>
     return 0
   })
 
-export const PropsTable = ({ sourceLink, types }: PropsTableProps) => {
+export const PropsTable = ({ componentSourceCodeLink, types }: PropsTableProps) => {
   const headers = ['name', 'type', 'default']
   const props = sortEventsOnTop(types)
 
@@ -78,8 +78,11 @@ export const PropsTable = ({ sourceLink, types }: PropsTableProps) => {
 
       <div className="my-2">
         <div className="flex justify-end gap-2">
-          {sourceLink && (
-            <ExternalLink href={sourceLink} className="text-low hover:text-high text-xs">
+          {componentSourceCodeLink && (
+            <ExternalLink
+              href={componentSourceCodeLink}
+              className="text-low hover:text-high text-xs"
+            >
               View Source on GitHub
             </ExternalLink>
           )}

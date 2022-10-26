@@ -16,6 +16,7 @@
     "@fontsource/ibm-plex-mono": "^4.5.11",
     "@fontsource/inter": "^4.5.12",
     "@mertasan/tailwindcss-variables": "^2.5.1",
+    "@next/font": "^13.0.0",
     "@radix-ui/react-dialog": "^1.0.2",
     "@radix-ui/react-popover": "^1.0.2",
     "@radix-ui/react-slot": "^1.0.0",
