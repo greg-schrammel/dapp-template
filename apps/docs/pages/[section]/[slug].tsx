@@ -16,10 +16,9 @@ export const getStaticPaths: GetStaticPaths = async () => ({
 })
 
 type StaticProps = {
-  docsLink: string
   frontMatter: Record<string, any>
   source: MDXRemoteSerializeResult
-  sourceLink: string
+  componentSourceCodeLink: string
   staticTypes?: Record<string, PropItem>
 }
 
@@ -40,15 +39,15 @@ export const getStaticProps: GetStaticProps<StaticProps> = async (context) => {
   const componentPathname = pathname.replace('docs.mdx', 'tsx')
   const staticTypes = getStaticTypes(componentPathname)[slug] ?? null
 
-  const docsLink = createGitHubLink(pathname.replace(/^(?:(?!\/packages).)*/i, ''))
-  const sourceLink = createGitHubLink(componentPathname.replace(/^(?:(?!\/packages).)*/i, ''))
+  const componentSourceCodeLink = createGitHubLink(
+    componentPathname.replace(/^(?:(?!\/packages).)*/i, ''),
+  )
 
   return {
     props: {
-      docsLink,
       frontMatter: data,
       source: mdxSource,
-      sourceLink,
+      componentSourceCodeLink,
       staticTypes,
     },
   }
@@ -56,13 +55,13 @@ export const getStaticProps: GetStaticProps<StaticProps> = async (context) => {
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>
 
-const Page = ({ docsLink, source, sourceLink, staticTypes }: Props) => {
+const Page = ({ source, componentSourceCodeLink, staticTypes }: Props) => {
   return (
     <MDXRemote
       {...source}
       scope={{
         ...source.scope,
-        sourceLink,
+        componentSourceCodeLink,
         types: staticTypes,
       }}
     />
