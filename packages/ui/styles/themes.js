@@ -5,7 +5,7 @@ const darkTheme = {
   colors: {
     text: {
       high: grey[50],
-      medium: grey[200],
+      medium: grey[300],
       low: grey[300],
     },
     border: {
@@ -28,11 +28,11 @@ const lightTheme = {
   colors: {
     text: {
       high: grey[800],
-      medium: grey[500],
-      low: grey[400],
+      medium: grey[400],
+      low: grey[300],
     },
     border: {
-      primary: grey[100],
+      primary: grey[200],
       secondary: grey[200],
     },
     background: {

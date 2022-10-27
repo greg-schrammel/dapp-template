@@ -4,7 +4,7 @@ import { forwardRef, PropsWithChildren } from 'react'
 
 const buttonBaseStyles = cva([
   'h-min transition-all rounded relative',
-  'font-semibold font-sans',
+  'text-medium font-semibold font-sans',
   'outline-none ring-0 ring-primary',
   'hover:text-high hover:ring-2',
   'focus:ring-2 focus:bg-tertiary',
@@ -13,8 +13,8 @@ const buttonBaseStyles = cva([
 const buttonStyles = cva(buttonBaseStyles({ class: 'flex gap-2 items-center justify-center' }), {
   variants: {
     variant: {
-      primary: ['text-low bg-tertiary border'],
-      secondary: ['text-low hover:text-high hover:bg-tertiary'],
+      primary: ['bg-tertiary border'],
+      secondary: ['hover:text-high hover:bg-tertiary'],
     },
     size: {
       xs: 'py-1 px-2 text-xs',
@@ -27,18 +27,15 @@ const buttonStyles = cva(buttonBaseStyles({ class: 'flex gap-2 items-center just
   defaultVariants: { variant: 'primary', size: 'md' },
 })
 
-const iconButtonStyles = cva(
-  buttonBaseStyles({ class: 'text-low hover:bg-tertiary hover:ring-2' }),
-  {
-    variants: {
-      size: {
-        sm: 'py-1 px-1',
-        md: 'py-2 px-2',
-        lg: 'py-3 px-3',
-      },
+const iconButtonStyles = cva(buttonBaseStyles({ class: 'hover:bg-tertiary hover:ring-2' }), {
+  variants: {
+    size: {
+      sm: 'py-1 px-1',
+      md: 'py-2 px-2',
+      lg: 'py-3 px-3',
     },
   },
-)
+})
 
 type DefaultButtonProps = {
   /** width 100% */
