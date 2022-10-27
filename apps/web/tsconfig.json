@@ -11,7 +11,7 @@
     "inlineSources": false,
     "isolatedModules": true,
     "lib": ["ES2021", "DOM", "DOM.Iterable"],
-    "module": "esnext",
+    "module": "ESNext",
     "moduleResolution": "Node",
     "noUnusedLocals": false,
     "noUnusedParameters": false,
@@ -22,8 +22,9 @@
     "typeRoots": ["../../node_modules/@types"],
     "jsx": "preserve",
     "noEmit": true,
-    "target": "ESNext"
+    "target": "ESNext",
+    "plugins": [{ "name": "next" }]
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
   "exclude": ["node_modules"]
 }

@@ -1,9 +1,8 @@
-const withTM = require('next-transpile-modules')(['ui', 'icons', 'hooks'])
+import withTM from 'next-transpile-modules'
+import { env } from './env/server.mjs'
 
 const docsUrl =
-  process.env.NODE_ENV === 'development'
-    ? 'http://localhost:3001/docs'
-    : 'https://docs-dapp-t.vercel.app/docs'
+  env.NODE_ENV === 'development' ? 'http://localhost:3001/docs' : 'https://dapp.gregs.wtf/docs'
 
 /** @type {import('next').NextConfig} **/
 const nextConfig = {
@@ -22,4 +21,4 @@ const nextConfig = {
   },
 }
 
-module.exports = withTM(nextConfig)
+export default withTM(['ui', 'icons', 'hooks'])(nextConfig)

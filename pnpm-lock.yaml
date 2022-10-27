@@ -117,6 +117,7 @@ importers:
 
   apps/web:
     specifiers:
+      '@0xsequence/multicall': ^0.42.9
       '@gnosis.pm/safe-apps-wagmi': ^1.0.4
       '@tanstack/react-query': ^4.3.9
       '@types/ms': ^0.7.31
@@ -145,7 +146,9 @@ importers:
       typescript: ^4.8.3
       ui: workspace:*
       wagmi: ^0.7.5
+      zod: ^3.19.1
     dependencies:
+      '@0xsequence/multicall': 0.42.9
       '@gnosis.pm/safe-apps-wagmi': 1.0.4_@wagmi+core@0.5.8
       '@tanstack/react-query': 4.13.0_5qh23tcr3iha6376fuaqv4s6zm
       '@types/ms': 0.7.31
@@ -166,6 +169,7 @@ importers:
       sharp: 0.31.1
       ui: link:../../packages/ui
       wagmi: 0.7.5_7fhwbuxgxd3pxk6fw5hb5dwxam
+      zod: 3.19.1
     devDependencies:
       '@types/node': 18.11.5
       '@types/react': 18.0.23
@@ -314,6 +318,46 @@ importers:
     specifiers: {}
 
 packages:
+
+  /@0xsequence/abi/0.42.9:
+    resolution: {integrity: sha512-qd/d4AIa0uQBqVjF33AzdmaxlRZHMsLW8v+6FZh8oKbyKz9KeYCrpBjUQlG6OwLkpro9ZLjFBje8FLkJibpN2A==}
+    dev: false
+
+  /@0xsequence/multicall/0.42.9:
+    resolution: {integrity: sha512-X04Hd8lDHzndLR+1go/PK4mkjF8pQjIp4N0xGeQAlr+7zT0FeeqqkIx0N0lhjl/kf2kCoa7jWycbmNE10L8Dkg==}
+    dependencies:
+      '@0xsequence/abi': 0.42.9
+      '@0xsequence/network': 0.42.9
+      '@0xsequence/utils': 0.42.9
+      '@ethersproject/providers': 5.7.2
+      ethers: 5.7.2
+    transitivePeerDependencies:
+      - bufferutil
+      - utf-8-validate
+    dev: false
+
+  /@0xsequence/network/0.42.9:
+    resolution: {integrity: sha512-b80Dpu6A36J9wBk+9/LT4qEQ6dY09klJSDkWutMnQoMJkikFo9Yl4+FQHKb+wJ580cNUADZAUWPnSEjc7CPHjQ==}
+    dependencies:
+      '@0xsequence/utils': 0.42.9
+      '@ethersproject/providers': 5.7.2
+      ethers: 5.7.2
+    transitivePeerDependencies:
+      - bufferutil
+      - utf-8-validate
+    dev: false
+
+  /@0xsequence/utils/0.42.9:
+    resolution: {integrity: sha512-BqYp9HhH+IF7rreGAvMy/JXIiJGfD5GhyiBtHjO33fBLKVwlmVIJJsN0VRTuXpo+Lik28npEbgrGl1lXQBDlhA==}
+    dependencies:
+      '@ethersproject/abstract-signer': 5.7.0
+      '@ethersproject/properties': 5.7.0
+      ethers: 5.7.2
+      js-base64: 3.7.2
+    transitivePeerDependencies:
+      - bufferutil
+      - utf-8-validate
+    dev: false
 
   /@ampproject/remapping/2.2.0:
     resolution: {integrity: sha512-qRmjj8nj9qmLTQXXmaR1cck3UXSRMPrbsLJAasZpF+t3riI71BXed5ebIOYwQntykeZuhjsdweEc9BxH5Jc26w==}
@@ -7337,6 +7381,10 @@ packages:
       '@sideway/pinpoint': 2.0.0
     dev: false
 
+  /js-base64/3.7.2:
+    resolution: {integrity: sha512-NnRs6dsyqUXejqk/yv2aiXlAvOs56sLkX6nUdeaNezI5LFFLlsZjOThmwnrcwh5ZZRwZlCMnVAY3CvhIhoVEKQ==}
+    dev: false
+
   /js-sdsl/4.1.5:
     resolution: {integrity: sha512-08bOAKweV2NUC1wqTtf3qZlnpOX/R2DU9ikpjOHs0H+ibQv3zpncVQg6um4uYtRtrwIX8M4Nh3ytK4HGlYAq7Q==}
 
@@ -11743,6 +11791,10 @@ packages:
   /yocto-queue/0.1.0:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
+
+  /zod/3.19.1:
+    resolution: {integrity: sha512-LYjZsEDhCdYET9ikFu6dVPGp2YH9DegXjdJToSzD9rO6fy4qiRYFoyEYwps88OseJlPyl2NOe2iJuhEhL7IpEA==}
+    dev: false
 
   /zustand/4.1.3_react@18.2.0:
     resolution: {integrity: sha512-AdFyr6+4sVD6xlyc/ArQaOrleqzxJEBbAXglufZ5lgvisoz8GUN3icOrKOnX1uRSxmpmdVUQPen9hhymWIzhBg==}

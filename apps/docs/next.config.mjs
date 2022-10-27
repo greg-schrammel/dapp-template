@@ -1,8 +1,7 @@
 import nextMDX from '@next/mdx'
-import TranspileModules from 'next-transpile-modules'
+import withTM from 'next-transpile-modules'
 import remarkMdxCodeMeta from 'remark-mdx-code-meta'
 import { links } from './utils/links.mjs'
-const withTM = TranspileModules(['ui', 'icons', 'hooks'])
 
 const withMDX = nextMDX({
   extension: /\.mdx?$/,
@@ -25,4 +24,4 @@ const nextConfig = {
   },
 }
 
-export default withTM(withMDX(nextConfig))
+export default withTM(['ui', 'icons', 'hooks'])(withMDX(nextConfig))
