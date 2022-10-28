@@ -10,6 +10,9 @@ const buttonBaseStyles = cva([
   'focus:ring-2 focus:bg-tertiary',
 ])
 
+const compoundBleed = <Size extends string>(size: Size, classes: string) =>
+  ({ size, bleed: true, class: classes } as const)
+
 const buttonStyles = cva(buttonBaseStyles({ class: 'flex gap-2 items-center justify-center' }), {
   variants: {
     variant: {
@@ -23,7 +26,14 @@ const buttonStyles = cva(buttonBaseStyles({ class: 'flex gap-2 items-center just
       lg: 'py-3 px-8',
     },
     fullWidth: { true: 'w-full', false: 'w-auto' },
+    bleed: { true: '', false: '' },
   },
+  compoundVariants: [
+    compoundBleed('xs', '-my-1 -mx-2'),
+    compoundBleed('sm', '-my-1 -mx-3'),
+    compoundBleed('md', '-my-2 -mx-4'),
+    compoundBleed('lg', '-my-3 -mx-8'),
+  ],
   defaultVariants: { variant: 'primary', size: 'md' },
 })
 
@@ -34,12 +44,20 @@ const iconButtonStyles = cva(buttonBaseStyles({ class: 'hover:bg-tertiary hover:
       md: 'py-2 px-2',
       lg: 'py-3 px-3',
     },
+    bleed: { true: '', false: '' },
   },
+  compoundVariants: [
+    compoundBleed('sm', '-my-1 -mx-1'),
+    compoundBleed('md', '-my-2 -mx-2'),
+    compoundBleed('lg', '-my-3 -mx-3'),
+  ],
 })
 
 type DefaultButtonProps = {
   /** width 100% */
   fullWidth?: boolean
+  /** counters the padding with negative margin */
+  bleed?: boolean
   /** Change the component to the HTML tag or custom component of the only child.
    * This will merge the original component props with the props of the supplied
    * element/component and change the underlying DOM node. */
@@ -60,7 +78,7 @@ export type ButtonProps = PropsWithChildren<
 >
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ variant = 'primary', size = 'md', ...props }, ref) => {
+  ({ variant = 'primary', size = 'md', bleed, ...props }, ref) => {
     if (variant === 'icon')
       return (
         <button
@@ -68,6 +86,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           {...props}
           className={iconButtonStyles({
             size: size as VariantProps<typeof iconButtonStyles>['size'], // fix types
+            bleed,
           })}
         />
       )
@@ -75,7 +94,11 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     const { fullWidth, asChild, ...baseProps } = props
     const Component = asChild ? Slot : 'button'
     return (
-      <Component ref={ref} {...baseProps} className={buttonStyles({ variant, size, fullWidth })} />
+      <Component
+        ref={ref}
+        {...baseProps}
+        className={buttonStyles({ variant, size, fullWidth, bleed })}
+      />
     )
   },
 )
