@@ -6,6 +6,7 @@ type BaseCurrency = {
 }
 
 declare global {
+  declare type NativeSymbol = 'ETH'
   declare type Address = `0x${string}`
 
   declare type Currency =

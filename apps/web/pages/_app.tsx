@@ -6,6 +6,7 @@ import { ErrorBoundary } from 'react-error-boundary'
 
 import ErrorFallback from 'components/ErrorFallback'
 import { Providers } from 'components/Providers'
+
 import 'styles/globals.css'
 import 'ui/fonts'
 

@@ -2,7 +2,16 @@ import { motion } from 'framer-motion'
 import { MagicWandIcon, SearchIcon } from 'icons'
 import Image from 'next/image'
 import { useState } from 'react'
-import { Button, Dialog, DialogClose, DialogContent, DialogTrigger, Input, VirtualList } from 'ui'
+import {
+  Button,
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogTrigger,
+  Input,
+  TokenIcon,
+  VirtualList,
+} from 'ui'
 import { Token, useTokenList } from './hooks/useTokenList'
 
 const UniswapDefaultTokenList = 'https://gateway.ipfs.io/ipns/tokens.uniswap.org'
@@ -54,22 +63,52 @@ const PasteClipboardButton = ({
   </div>
 )
 
-export const CurrencySelector = ({ tokenList = UniswapDefaultTokenList }) => {
+type CurrencySelectorProps = {
+  selected: Address | null
+  onSelect: (c: Address) => void
+  /**
+   * token list url
+   * https://tokenlists.org/
+   */
+  tokenList?: string
+}
+
+const searchTokenFilter = (tokens: Token[], search: string) =>
+  tokens.filter(
+    ({ name, address, symbol }: Token) =>
+      !search ||
+      address.toLowerCase() === search.toLowerCase() ||
+      name.toLowerCase().includes(search.toLowerCase()) ||
+      symbol.toLowerCase().includes(search.toLowerCase()),
+  )
+
+const SearchInput = ({ setSearch, search }: { setSearch: (s: string) => void; search: string }) => (
+  <Input
+    fullWidth
+    size="md"
+    placeholder="Search name or address"
+    value={search}
+    onChange={(e) => setSearch(e.target.value)}
+    left={<SearchIcon className="text-low -ml-1 text-xl" />}
+    right={<PasteClipboardButton onPaste={setSearch} className="-mr-2" />}
+  />
+)
+
+export const CurrencySelector = ({
+  selected,
+  onSelect,
+  tokenList = UniswapDefaultTokenList,
+}: CurrencySelectorProps) => {
   const { data, isSuccess } = useTokenList(tokenList)
 
   const [search, setSearch] = useState('')
+  const filteredTokens = isSuccess ? searchTokenFilter(data.tokens, search) : []
 
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant="secondary" size="sm">
-          <Image
-            src="/tokens/dai.png"
-            alt="dai logo"
-            width={24}
-            height={24}
-            className="bg-primary rounded-full border"
-          />
+        <Button variant="secondary" size="sm" bleed>
+          <TokenIcon address={''} symbol="DAI" />
           <span className="font-extrabold">DAI</span>
         </Button>
       </DialogTrigger>
@@ -83,19 +122,14 @@ export const CurrencySelector = ({ tokenList = UniswapDefaultTokenList }) => {
             <h3 className="text-low text-sm font-semibold">Select a token</h3>
             <DialogClose />
           </div>
-          <Input
-            fullWidth
-            size="md"
-            placeholder="Search name or address"
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            left={<SearchIcon className="text-low -ml-1 text-xl" />}
-            right={<PasteClipboardButton onPaste={setSearch} className="-mr-2" />}
-          />
+
+          <SearchInput {...{ setSearch, search }} />
+
           <div className="border-primary mx-1 h-0 w-auto border-t" />
+
           {isSuccess ? (
             <VirtualList
-              data={data.tokens}
+              data={filteredTokens}
               renderItem={(token) => <CurrencySelectorItem {...token} />}
               itemHeight={48}
               className="-mx-1 px-1 pt-2"
@@ -107,6 +141,7 @@ export const CurrencySelector = ({ tokenList = UniswapDefaultTokenList }) => {
               ))}
             </div>
           )}
+
           <Button size="sm" variant="secondary">
             <span className="text-xs">Import token list</span>
           </Button>

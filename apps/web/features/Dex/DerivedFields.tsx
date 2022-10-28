@@ -5,11 +5,19 @@ import { useFeeData } from 'wagmi'
 import { CurrencySelector } from './CurrencySelector'
 
 const useDerivedFields = () => {
-  const [[a, b], setInputs] = useState(['', ''])
+  const [[buyCurrency, sellCurrency], setCurrencies] = useState<(Address | null)[]>([null, null])
+  const [[buyAmount, sellAmount], setAmounts] = useState(['', ''])
 
   const price = 1
 
-  const handleInput: (id: number) => NumberInputProps['onValueChange'] =
+  const handleCurrencyChange = (id: number) => (newCurrency: Address) => {
+    setCurrencies((currencies) => {
+      currencies[id] = newCurrency
+      return currencies
+    })
+  }
+
+  const handleAmountChange: (id: number) => NumberInputProps['onValueChange'] =
     (id) =>
     (e, { source }) => {
       if (source === 'prop') return
@@ -20,30 +28,58 @@ const useDerivedFields = () => {
       const other = id === 0 ? 1 : 0
       const derived = id === 0 ? value * price : value / price
       {
-        let newInputs: [string, string] = [a, b]
+        let newInputs: [string, string] = [buyAmount, sellAmount]
         newInputs[id] = (value || '').toString()
         newInputs[other] = derived === 0 ? '' : derived.toPrecision(6)
-        setInputs(newInputs)
+        setAmounts(newInputs)
       }
     }
 
   return {
-    buyFieldProps: { onValueChange: handleInput(0), value: a },
-    sellFieldProps: { onValueChange: handleInput(1), value: b },
-    switchFields: () => setInputs([b, a]),
+    buyFieldProps: {
+      onAmountChange: handleAmountChange(0),
+      amount: buyAmount,
+      onCurrencyChange: handleCurrencyChange(0),
+      currency: buyCurrency,
+    },
+    sellFieldProps: {
+      onAmountChange: handleAmountChange(1),
+      amount: sellAmount,
+      onCurrencyChange: handleCurrencyChange(1),
+      currency: sellCurrency,
+    },
+    switchFields: () => setAmounts([sellAmount, buyAmount]),
   }
 }
 
-const CurrencyAmountField = ({ ...props }: Omit<NumberInputProps, 'placeholder'>) => {
+type CurrencyAmountFieldProps = {
+  amount: string
+  currency: Address | null
+  onAmountChange: NumberInputProps['onValueChange'] //(newAmount: string) => void
+  onCurrencyChange: (newCurrency: Address) => void
+}
+
+const CurrencyAmountField = ({
+  amount,
+  currency,
+  onCurrencyChange,
+  onAmountChange,
+}: CurrencyAmountFieldProps) => {
   return (
     <div className={cx('flex items-center', inputStyles({ size: 'md' }))}>
-      <div className="flex flex-col gap-2">
-        <NumberInput variant="unstyled" placeholder="1" size={null} {...props} />
+      <div className="flex flex-col gap-3">
+        <NumberInput
+          value={amount.toString()}
+          onValueChange={onAmountChange}
+          variant="unstyled"
+          placeholder="1"
+          size={null}
+        />
         <span className="text-low text-xs">$ 1,212.32</span>
       </div>
-      <div className="-mr-2 flex flex-col gap-1">
-        <CurrencySelector />
-        <Button variant="secondary" size="xs">
+      <div className="flex flex-col gap-3 p-1">
+        <CurrencySelector selected={currency} onSelect={onCurrencyChange} />
+        <Button variant="secondary" size="xs" bleed>
           Balance: 10
         </Button>
       </div>
