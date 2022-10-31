@@ -23,8 +23,8 @@ const ConnectedButton = ({
           <span className="text-low text-right text-xs">{chain?.name}</span>
         </div>
         <Image
-          width="36px"
-          height="36px"
+          width={36}
+          height={36}
           className="rounded-sm"
           alt="address blockie"
           src={makeBlockie(address)}

@@ -1,6 +1,6 @@
 import { SafeConnector } from '@gnosis.pm/safe-apps-wagmi'
 import { PropsWithChildren, useEffect } from 'react'
-import { chain, configureChains, createClient, useConnect, WagmiConfig } from 'wagmi'
+import { chain, configureChains, Connector, createClient, useConnect, WagmiConfig } from 'wagmi'
 import { InjectedConnector } from 'wagmi/connectors/injected'
 import { MetaMaskConnector } from 'wagmi/connectors/metaMask'
 import { WalletConnectConnector } from 'wagmi/connectors/walletConnect'
@@ -19,7 +19,7 @@ const connectors = [
   new InjectedConnector({ chains }),
   new MetaMaskConnector({ chains }),
   new WalletConnectConnector({ chains, options: { qrcode: false } }),
-]
+] as Connector[]
 
 const isServer = typeof window === 'undefined'
 const isIframe = !isServer && window?.parent !== window
