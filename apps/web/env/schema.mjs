@@ -15,7 +15,7 @@ const web3ProvidersKeys = z
     NEXT_PUBLIC_ETHERSCAN_API_KEY: z.string(),
   })
   .partial()
-  .refine((k) => Object.values(k).some((v) => v.length > 10), {
+  .refine((k) => Object.values(k).some((v) => v && v.length > 10), {
     message: 'At least one provider key must be defined',
     path: ['providers'],
   })
