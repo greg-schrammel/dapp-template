@@ -1,8 +1,9 @@
 import { Slot } from '@radix-ui/react-slot'
 import { cva, VariantProps } from 'class-variance-authority'
 import { forwardRef, PropsWithChildren } from 'react'
+import { cx } from '../..'
 
-const buttonBaseStyles = cva([
+const buttonBaseStyles = cx([
   'h-min transition-all rounded relative',
   'text-medium font-semibold font-sans',
   'outline-none ring-0 ring-primary',
@@ -13,7 +14,7 @@ const buttonBaseStyles = cva([
 const compoundBleed = <Size extends string>(size: Size, classes: string) =>
   ({ size, bleed: true, class: classes } as const)
 
-const buttonStyles = cva(buttonBaseStyles({ class: 'flex gap-2 items-center justify-center' }), {
+const buttonStyles = cva([buttonBaseStyles, 'flex gap-2 items-center justify-center'], {
   variants: {
     variant: {
       primary: ['bg-tertiary border'],
@@ -37,7 +38,7 @@ const buttonStyles = cva(buttonBaseStyles({ class: 'flex gap-2 items-center just
   defaultVariants: { variant: 'primary', size: 'md' },
 })
 
-const iconButtonStyles = cva(buttonBaseStyles({ class: 'hover:bg-tertiary hover:ring-2' }), {
+const iconButtonStyles = cva([buttonBaseStyles, 'hover:bg-tertiary hover:ring-2'], {
   variants: {
     size: {
       sm: 'py-1 px-1',
