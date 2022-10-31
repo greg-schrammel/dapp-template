@@ -2,7 +2,9 @@ import withTM from 'next-transpile-modules'
 import { env } from './env/server.mjs'
 
 const docsUrl =
-  env.NODE_ENV === 'development' ? 'http://localhost:3001/docs' : 'https://dapp.gregs.wtf/docs'
+  env.NODE_ENV === 'development'
+    ? 'http://localhost:3001/docs'
+    : 'https://docs-dapp-t.vercel.app/docs'
 
 /** @type {import('next').NextConfig} **/
 const nextConfig = {
