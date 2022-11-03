@@ -1,7 +1,7 @@
 import { Slot } from '@radix-ui/react-slot'
 import { cva, VariantProps } from 'class-variance-authority'
 import { forwardRef, PropsWithChildren } from 'react'
-import { cx } from '../..'
+import { cx } from '../../utils'
 
 const buttonBaseStyles = cx([
   'h-min transition-all rounded relative',

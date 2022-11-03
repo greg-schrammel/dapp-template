@@ -5,8 +5,21 @@ import { Popover } from 'ui'
 ```
 
 ```tsx live=true
-<Button>Connect Wallet</Button>
+<Popover>
+  <PopoverTrigger asChild>
+    <Button size="sm">
+      Open Popover
+    </Button>
+  </PopoverTrigger>
+  <PopoverContent className="h-[200px]">
+    <div className="flex items-start justify-between">
+      <h3 className="text-low text-sm font-semibold">Im a popover</h3>
+    </div>
+  </PopoverContent>
+</Popover>
 ```
+
+
 
 ## Props
 

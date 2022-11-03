@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion'
 import * as Icons from 'icons'
 import NextImage from 'next/image'
 import NextLink from 'next/link'
@@ -23,6 +24,7 @@ export const CodePreview = ({ code, language, theme }: Props) => {
       scope={{
         ...Components,
         ...Icons,
+        motion,
         previewRef,
         NextImage,
         NextLink,
@@ -37,8 +39,8 @@ export const CodePreview = ({ code, language, theme }: Props) => {
         <LiveError className="font-mono text-xs text-red-500" />
       </div>
       <div className="-mx-3 my-2 border-t border-white/10" />
-      <div className="relative py-2">
-        <LiveEditor className="text-sm" />
+      <div className="relative overflow-auto py-2">
+        <LiveEditor className="w-max text-sm" />
 
         <div className="absolute -right-2 -top-1">
           <CopyButton content={code} />

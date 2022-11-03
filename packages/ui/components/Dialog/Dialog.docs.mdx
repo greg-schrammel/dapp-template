@@ -5,28 +5,26 @@ import { Dialog, DialogTrigger, DialogContent } from 'ui'
 ```
 
 ```tsx live=true
-<Button>Connect Wallet</Button>
+<Dialog>
+  <DialogTrigger asChild>
+    <Button size="sm">
+      Open Dialog
+    </Button>
+  </DialogTrigger>
+  <DialogContent>
+    <motion.div
+      initial={{ opacity: 0, scale: 0.9 }}
+      animate={{ opacity: 1, scale: 1 }}
+      className="bg-secondary flex h-[200px] w-[300px] justify-between flex-col gap-3 rounded border p-4 shadow"
+    >
+      <div className="flex items-start justify-between">
+        <h3 className="text-low text-sm font-semibold">Im a dialog</h3>
+        <DialogClose />
+      </div>
+
+      <Button size="sm">Some action</Button>
+    </motion.div>
+  </DialogContent>
+</Dialog>
 ```
 
-## Props
-
-<PropsTable componentSourceCodeLink={componentSourceCodeLink} types={types} />
-
-
-## Icon variant
-
-```tsx live=true
-<div className="flex items-center gap-2">  
-  <Button variant="icon" size="sm">
-    <CloseIcon title="wallet" />
-  </Button>
-
-  <Button variant="icon">
-    <WalletIcon title="wallet" />
-  </Button>
-  
-  <Button variant="icon">
-    <MenuIcon title="wallet" />
-  </Button>
-</div>
-```
